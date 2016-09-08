@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jasmine</title>
+  <subtitle>不积跬步，无以至千里</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-09-08T07:12:06.954Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Jasmine</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初遇 Hexo</title>
+    <link href="http://yoursite.com/2016/09/07/one/"/>
+    <id>http://yoursite.com/2016/09/07/one/</id>
+    <published>2016-09-07T06:43:22.893Z</published>
+    <updated>2016-09-08T07:12:06.954Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
+<li>node</li>
+<li>git</li>
+<li>GitHub（注意<a href="http://blog.csdn.net/dengjianqiang2011/article/details/9260435" target="_blank" rel="external">ssh</a>）</li>
+<li>评论框（多说）<a id="more"></a>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;node&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;li&gt;GitHub（注意&lt;a href=&quot;http://blog.csdn.net/dengjianqiang2011/article/details/9260435&quot;&gt;ssh&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;评论框（多说）
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="记录" scheme="http://yoursite.com/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+</feed>
