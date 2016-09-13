@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-13T07:44:17.221Z</updated>
+  <updated>2016-09-13T10:06:25.422Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,391 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Date日期对象</title>
+    <link href="http://yoursite.com/2016/09/13/two/"/>
+    <id>http://yoursite.com/2016/09/13/two/</id>
+    <published>2016-09-13T07:47:10.000Z</published>
+    <updated>2016-09-13T10:06:25.422Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Javascript日期操作"><a href="#Javascript日期操作" class="headerlink" title="Javascript日期操作"></a>Javascript日期操作</h2><p>事实证明知识在于累积，感觉自己遗忘的速度有点快呀，连最基本的日期对象都记得不是特别牢固，今天阅读项目中的一段JSON字段，如下：<br>                “from”: <strong>-4045717554</strong>,<br>                “to”: <strong>-1219713505</strong><br>看到这两个日期，我一脸茫然，负的毫秒数。找到使用处的代码。看到一个有意思的函数：<br>&ensp;function cvtTime(tick){<br>&ensp;&ensp;&ensp;&ensp;var curDateTick = new Date().getTime();<br>&ensp;&ensp;&ensp;&ensp;tick = 0 - 100 * ((0 - tick) % 100000000);<br>&ensp;&ensp;&ensp;&ensp;return new Date(curDateTick + tick);<br>&ensp;}<br>咋看之初，还是无法明白这是有什么用途，执行发现原来是给出相对当前时间的偏移量，计算出某个时间。<br>顺带回顾了一下日期对象：<br>    var d = new Date();<br>    d.getFullYear(); //年<br>    d.getMonth()+1;  //月<br>    d.getDate();     //日<br>    d.getHours();    //时<br>    d.getMinutes();  //分<br>    d.getSeconds();  //秒<br>    d.getDay();      //星期<br>    d.getTime();     //返回1970年1月1日至今的毫秒数<br>    相应的有set方法。<br>常用的日期处理方法：</p>
+<pre><code>    /* 说明：时间格式处理(年/月/日 时:分:秒)
+     *  返回值类型：对象
+     */
+     function formatDate(DateIn) {
+        var Year = 0;
+        var Month = 0;
+        var Day = 0;
+        var Hour = 0;
+        var Minute = 0;
+        var Second = 0;
+        var CurrentDate = &quot;&quot;;
+        var CurrentHms = &quot;&quot;;//当前时分秒
+
+        //初始化时间
+        Year = DateIn.getYear() + 1900;
+        Month = DateIn.getMonth() + 1;
+        Day = DateIn.getDate();
+        Hour = DateIn.getHours();
+        Minute = DateIn.getMinutes();
+        Second = DateIn.getSeconds();
+
+        CurrentDate = Year + &quot;/&quot;;
+        if (Month &gt;= 10) {
+            CurrentDate = CurrentDate + Month + &quot;/&quot;;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot;0&quot; + Month + &quot;/&quot;;
+        }
+        if (Day &gt;= 10) {
+            CurrentDate = CurrentDate + Day;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot;0&quot; + Day;
+        }
+
+        if (Hour &gt;= 10) {
+            CurrentDate = CurrentDate + &quot; &quot; + Hour;
+            CurrentHms = CurrentHms + Hour;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot; 0&quot; + Hour;
+            CurrentHms = CurrentHms + &quot; 0&quot; + Hour;
+        }
+
+        if (Minute &gt;= 10) {
+            CurrentDate = CurrentDate + &quot;:&quot; + Minute;
+            CurrentHms = CurrentHms + &quot;:&quot; + Minute;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot;:0&quot; + Minute;
+            CurrentHms = CurrentHms + &quot;:0&quot; + Minute;
+        }
+
+        if (Second &gt;= 10) {
+            CurrentDate = CurrentDate + &quot;:&quot; + Second;
+            CurrentHms = CurrentHms + &quot;:&quot; + Second;
+        } else {
+            CurrentDate = CurrentDate + &quot;:0&quot; + Second;
+            CurrentHms = CurrentHms + &quot;:0&quot; + Second;
+        }
+        return {
+            CurrentDate: CurrentDate,// 年/月/日 时：分：秒
+            CurrentHms: CurrentHms // 时：分：秒
+        };
+    }
+
+
+//将日期对象转换为字符串,格式为2016/05/05 12:05:24
+    function changeDateToString(DateIn) {
+        var Year = 0;
+        var Month = 0;
+        var Day = 0;
+        var Hour = 0;
+        var Minute = 0;
+        var Second = 0;
+        var CurrentDate = &quot;&quot;;
+
+        //初始化时间
+        Year = DateIn.getYear() + 1900;
+        Month = DateIn.getMonth() + 1;
+        Day = DateIn.getDate();
+        Hour = DateIn.getHours();
+        Minute = DateIn.getMinutes();
+        Second = DateIn.getSeconds();
+
+        CurrentDate = Year + &quot;-&quot;;
+        if (Month &gt;= 10) {
+            CurrentDate = CurrentDate + Month + &quot;-&quot;;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot;0&quot; + Month + &quot;-&quot;;
+        }
+        if (Day &gt;= 10) {
+            CurrentDate = CurrentDate + Day;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot;0&quot; + Day;
+        }
+
+        if (Hour &gt;= 10) {
+            CurrentDate = CurrentDate + &quot; &quot; + Hour;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot; 0&quot; + Hour;
+        }
+
+        if (Minute &gt;= 10) {
+            CurrentDate = CurrentDate + &quot;:&quot; + Minute;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot;:0&quot; + Minute;
+        }
+
+        if (Second &gt;= 10) {
+            CurrentDate = CurrentDate + &quot;:&quot; + Second;
+        } else {
+            CurrentDate = CurrentDate + &quot;:0&quot; + Second;
+        }
+        return CurrentDate;
+    },
+
+    //将日期对象转换为字符串,格式为2016-05-05(无时分秒)
+   function changeDayToString (DateIn, showHour) {
+        var Year = 0;
+        var Month = 0;
+        var Day = 0;
+        var Hour = 0;
+        var Minute = 0;
+        var Second = 0;
+        var CurrentDate = &quot;&quot;;
+
+        //初始化时间
+        Year = DateIn.getYear() + 1900;
+        Month = DateIn.getMonth() + 1;
+        Day = DateIn.getDate();
+        Hour = DateIn.getHours();
+        Minute = DateIn.getMinutes();
+        Second = DateIn.getSeconds();
+
+        CurrentDate = Year + &quot;-&quot;;
+        if (Month &gt;= 10) {
+            CurrentDate = CurrentDate + Month + &quot;-&quot;;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot;0&quot; + Month + &quot;-&quot;;
+        }
+        if (Day &gt;= 10) {
+            CurrentDate = CurrentDate + Day;
+        }
+        else {
+            CurrentDate = CurrentDate + &quot;0&quot; + Day;
+        }
+
+        if (!!showHour) {
+            if (Hour &gt;= 10) {
+                CurrentDate = CurrentDate + &quot; &quot; + Hour;
+            }
+            else {
+                CurrentDate = CurrentDate + &quot; 0&quot; + Hour;
+            }
+
+            if (Minute &gt;= 10) {
+                CurrentDate = CurrentDate + &quot;:&quot; + Minute;
+            }
+            else {
+                CurrentDate = CurrentDate + &quot;:0&quot; + Minute;
+            }
+
+            if (Second &gt;= 10) {
+                CurrentDate = CurrentDate + &quot;:&quot; + Second;
+            }
+            else {
+                CurrentDate = CurrentDate + &quot;:0&quot; + Second;
+            }
+        }
+
+        return CurrentDate;
+    }
+</code></pre><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Javascript日期操作&quot;&gt;&lt;a href=&quot;#Javascript日期操作&quot; class=&quot;headerlink&quot; title=&quot;Javascript日期操作&quot;&gt;&lt;/a&gt;Javascript日期操作&lt;/h2&gt;&lt;p&gt;事实证明知识在于累积，感觉自己遗忘的速度有点快呀，连最基本的日期对象都记得不是特别牢固，今天阅读项目中的一段JSON字段，如下：&lt;br&gt;                “from”: &lt;strong&gt;-4045717554&lt;/strong&gt;,&lt;br&gt;                “to”: &lt;strong&gt;-1219713505&lt;/strong&gt;&lt;br&gt;看到这两个日期，我一脸茫然，负的毫秒数。找到使用处的代码。看到一个有意思的函数：&lt;br&gt;&amp;ensp;function cvtTime(tick){&lt;br&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;var curDateTick = new Date().getTime();&lt;br&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;tick = 0 - 100 * ((0 - tick) % 100000000);&lt;br&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;return new Date(curDateTick + tick);&lt;br&gt;&amp;ensp;}&lt;br&gt;咋看之初，还是无法明白这是有什么用途，执行发现原来是给出相对当前时间的偏移量，计算出某个时间。&lt;br&gt;顺带回顾了一下日期对象：&lt;br&gt;    var d = new Date();&lt;br&gt;    d.getFullYear(); //年&lt;br&gt;    d.getMonth()+1;  //月&lt;br&gt;    d.getDate();     //日&lt;br&gt;    d.getHours();    //时&lt;br&gt;    d.getMinutes();  //分&lt;br&gt;    d.getSeconds();  //秒&lt;br&gt;    d.getDay();      //星期&lt;br&gt;    d.getTime();     //返回1970年1月1日至今的毫秒数&lt;br&gt;    相应的有set方法。&lt;br&gt;常用的日期处理方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    /* 说明：时间格式处理(年/月/日 时:分:秒)
+     *  返回值类型：对象
+     */
+     function formatDate(DateIn) {
+        var Year = 0;
+        var Month = 0;
+        var Day = 0;
+        var Hour = 0;
+        var Minute = 0;
+        var Second = 0;
+        var CurrentDate = &amp;quot;&amp;quot;;
+        var CurrentHms = &amp;quot;&amp;quot;;//当前时分秒
+
+        //初始化时间
+        Year = DateIn.getYear() + 1900;
+        Month = DateIn.getMonth() + 1;
+        Day = DateIn.getDate();
+        Hour = DateIn.getHours();
+        Minute = DateIn.getMinutes();
+        Second = DateIn.getSeconds();
+
+        CurrentDate = Year + &amp;quot;/&amp;quot;;
+        if (Month &amp;gt;= 10) {
+            CurrentDate = CurrentDate + Month + &amp;quot;/&amp;quot;;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot;0&amp;quot; + Month + &amp;quot;/&amp;quot;;
+        }
+        if (Day &amp;gt;= 10) {
+            CurrentDate = CurrentDate + Day;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot;0&amp;quot; + Day;
+        }
+
+        if (Hour &amp;gt;= 10) {
+            CurrentDate = CurrentDate + &amp;quot; &amp;quot; + Hour;
+            CurrentHms = CurrentHms + Hour;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot; 0&amp;quot; + Hour;
+            CurrentHms = CurrentHms + &amp;quot; 0&amp;quot; + Hour;
+        }
+
+        if (Minute &amp;gt;= 10) {
+            CurrentDate = CurrentDate + &amp;quot;:&amp;quot; + Minute;
+            CurrentHms = CurrentHms + &amp;quot;:&amp;quot; + Minute;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot;:0&amp;quot; + Minute;
+            CurrentHms = CurrentHms + &amp;quot;:0&amp;quot; + Minute;
+        }
+
+        if (Second &amp;gt;= 10) {
+            CurrentDate = CurrentDate + &amp;quot;:&amp;quot; + Second;
+            CurrentHms = CurrentHms + &amp;quot;:&amp;quot; + Second;
+        } else {
+            CurrentDate = CurrentDate + &amp;quot;:0&amp;quot; + Second;
+            CurrentHms = CurrentHms + &amp;quot;:0&amp;quot; + Second;
+        }
+        return {
+            CurrentDate: CurrentDate,// 年/月/日 时：分：秒
+            CurrentHms: CurrentHms // 时：分：秒
+        };
+    }
+
+
+//将日期对象转换为字符串,格式为2016/05/05 12:05:24
+    function changeDateToString(DateIn) {
+        var Year = 0;
+        var Month = 0;
+        var Day = 0;
+        var Hour = 0;
+        var Minute = 0;
+        var Second = 0;
+        var CurrentDate = &amp;quot;&amp;quot;;
+
+        //初始化时间
+        Year = DateIn.getYear() + 1900;
+        Month = DateIn.getMonth() + 1;
+        Day = DateIn.getDate();
+        Hour = DateIn.getHours();
+        Minute = DateIn.getMinutes();
+        Second = DateIn.getSeconds();
+
+        CurrentDate = Year + &amp;quot;-&amp;quot;;
+        if (Month &amp;gt;= 10) {
+            CurrentDate = CurrentDate + Month + &amp;quot;-&amp;quot;;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot;0&amp;quot; + Month + &amp;quot;-&amp;quot;;
+        }
+        if (Day &amp;gt;= 10) {
+            CurrentDate = CurrentDate + Day;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot;0&amp;quot; + Day;
+        }
+
+        if (Hour &amp;gt;= 10) {
+            CurrentDate = CurrentDate + &amp;quot; &amp;quot; + Hour;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot; 0&amp;quot; + Hour;
+        }
+
+        if (Minute &amp;gt;= 10) {
+            CurrentDate = CurrentDate + &amp;quot;:&amp;quot; + Minute;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot;:0&amp;quot; + Minute;
+        }
+
+        if (Second &amp;gt;= 10) {
+            CurrentDate = CurrentDate + &amp;quot;:&amp;quot; + Second;
+        } else {
+            CurrentDate = CurrentDate + &amp;quot;:0&amp;quot; + Second;
+        }
+        return CurrentDate;
+    },
+
+    //将日期对象转换为字符串,格式为2016-05-05(无时分秒)
+   function changeDayToString (DateIn, showHour) {
+        var Year = 0;
+        var Month = 0;
+        var Day = 0;
+        var Hour = 0;
+        var Minute = 0;
+        var Second = 0;
+        var CurrentDate = &amp;quot;&amp;quot;;
+
+        //初始化时间
+        Year = DateIn.getYear() + 1900;
+        Month = DateIn.getMonth() + 1;
+        Day = DateIn.getDate();
+        Hour = DateIn.getHours();
+        Minute = DateIn.getMinutes();
+        Second = DateIn.getSeconds();
+
+        CurrentDate = Year + &amp;quot;-&amp;quot;;
+        if (Month &amp;gt;= 10) {
+            CurrentDate = CurrentDate + Month + &amp;quot;-&amp;quot;;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot;0&amp;quot; + Month + &amp;quot;-&amp;quot;;
+        }
+        if (Day &amp;gt;= 10) {
+            CurrentDate = CurrentDate + Day;
+        }
+        else {
+            CurrentDate = CurrentDate + &amp;quot;0&amp;quot; + Day;
+        }
+
+        if (!!showHour) {
+            if (Hour &amp;gt;= 10) {
+                CurrentDate = CurrentDate + &amp;quot; &amp;quot; + Hour;
+            }
+            else {
+                CurrentDate = CurrentDate + &amp;quot; 0&amp;quot; + Hour;
+            }
+
+            if (Minute &amp;gt;= 10) {
+                CurrentDate = CurrentDate + &amp;quot;:&amp;quot; + Minute;
+            }
+            else {
+                CurrentDate = CurrentDate + &amp;quot;:0&amp;quot; + Minute;
+            }
+
+            if (Second &amp;gt;= 10) {
+                CurrentDate = CurrentDate + &amp;quot;:&amp;quot; + Second;
+            }
+            else {
+                CurrentDate = CurrentDate + &amp;quot;:0&amp;quot; + Second;
+            }
+        }
+
+        return CurrentDate;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="Date对象" scheme="http://yoursite.com/tags/Date%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>初遇 Hexo</title>
     <link href="http://yoursite.com/2016/09/07/one/"/>
     <id>http://yoursite.com/2016/09/07/one/</id>
     <published>2016-09-07T06:43:22.893Z</published>
-    <updated>2016-09-13T07:44:17.221Z</updated>
+    <updated>2016-09-13T07:46:32.894Z</updated>
     
     <content type="html"><![CDATA[<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
 <li>node</li>
