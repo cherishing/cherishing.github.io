@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-19T10:13:03.276Z</updated>
+  <updated>2016-09-19T10:26:31.453Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,12 +20,16 @@
     <link href="http://yoursite.com/2016/09/19/treeDream/"/>
     <id>http://yoursite.com/2016/09/19/treeDream/</id>
     <published>2016-09-19T10:12:08.000Z</published>
-    <updated>2016-09-19T10:13:03.276Z</updated>
+    <updated>2016-09-19T10:26:31.453Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="旅游" scheme="http://yoursite.com/tags/%E6%97%85%E6%B8%B8/"/>
+    
+      <category term="看海" scheme="http://yoursite.com/tags/%E7%9C%8B%E6%B5%B7/"/>
     
   </entry>
   
