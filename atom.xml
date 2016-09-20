@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-19T10:26:31.453Z</updated>
+  <updated>2016-09-20T08:13:39.657Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,15 @@
     <link href="http://yoursite.com/2016/09/19/treeDream/"/>
     <id>http://yoursite.com/2016/09/19/treeDream/</id>
     <published>2016-09-19T10:12:08.000Z</published>
-    <updated>2016-09-19T10:26:31.453Z</updated>
+    <updated>2016-09-20T08:13:39.657Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果有来生<br>要做一棵树<br>站成永恒<br>没有悲欢的姿势<br>一半在尘土里安详<br>一半在风里飞扬<br>一半洒落阴凉<br>一半沐浴阳光<br>非常沉默非常骄傲<br>从不依靠从不寻找<br>            ————三毛</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;如果有来生&lt;br&gt;要做一棵树&lt;br&gt;站成永恒&lt;br&gt;没有悲欢的姿势&lt;br&gt;一半在尘土里安详&lt;br&gt;一半在风里飞扬&lt;br&gt;一半洒落阴凉&lt;br&gt;一半沐浴阳光&lt;br&gt;非常沉默非常骄傲&lt;br&gt;从不依靠从不寻找&lt;br&gt;            ————三毛&lt;/p&gt;
+
     
     </summary>
     
