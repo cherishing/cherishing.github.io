@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="zh-EN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="Jasmine"><meta name="description" content="前言Ajax使得页面实现了无刷新更新内容，但是带来了一个问题，页面发生改变但是不能前进后退。因为ajax请求页面的内容是改变了，但是浏览器的url保持原来的，进而无法前进后退。history对象浏览器的window对象的history对象提供了访问和操纵历史记录的能力。作用于S"><meta name="keywords" content="Javascript,History对象"><title>浏览器的历史记录 · Jasmine</title><link rel="icon" href="/favicon.ico"><link rel="canonical" href="http://yoursite.com/2016/11/07/bowerHistory/"><link rel="stylesheet" href="/fonts/iconfont/iconfont.css"><link rel="stylesheet" href="/css/style.css"><script type="text/javascript">var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?Your baidu Analytics ID";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'Your Google Analytics ID', 'auto');
+ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/." class="logo">Jasmine</a><ul class="nav"><li class="nav-link"><a href="/" target="_self">Home</a></li><li class="nav-link"><a href="/archives/" target="_self">Archives</a></li><li class="nav-link"><a href="/tags/" target="_self">Tags</a></li><li class="nav-link"><a href="/about/" target="_self">About</a></li></ul></header><section id="container"><article class="post"><h1 class="post-title">浏览器的历史记录</h1><span class="post-time">Nov 7, 2016</span><div id="sidebar" class="post-sidebar"><h3 class="heading">Contents</h3><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history对象"><span class="toc-text">history对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#历史记录栈"><span class="toc-text">历史记录栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#详细介绍history对象"><span class="toc-text">详细介绍history对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#资料参考链接"><span class="toc-text">资料参考链接</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Ajax使得页面实现了无刷新更新内容，但是带来了一个问题，页面发生改变但是不能前进后退。因为ajax请求页面的内容是改变了，但是浏览器的url保持原来的，进而无法前进后退。</p>
+<h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><p>浏览器的window对象的history对象提供了访问和操纵历史记录的能力。作用于SPA。</p>
+<p>History的方法：back()、forward()、go(num)、pushState()、replaceState()<br>属性：state、length<br>popstate事件<br><a id="more"></a></p>
+<h4 id="历史记录栈"><a href="#历史记录栈" class="headerlink" title="历史记录栈"></a>历史记录栈</h4><p>浏览器有一个数据结构用来存储网页的历史记录，称之为历史记录栈。它是栈的一个应用。浏览器对历史记录栈的存储总数有限制，谷歌和火狐都是长度为50。当历史记录栈存储的量超过这个限制后，历史记录得存储就会采用滚动的方式存储，也就是新的记录会压入到栈的顶部，最底部的记录会从栈的底部移除出去。</p>
+<h4 id="详细介绍history对象"><a href="#详细介绍history对象" class="headerlink" title="详细介绍history对象"></a>详细介绍history对象</h4><p><strong>1）前进与后退</strong><br>Window.history.forward()  //等同于浏览器的工具栏点击前进按钮<br>Window.history.back()  //等同于浏览器的工具栏点击返回按钮</p>
+<p>2）移动到指定的历史记录点<br>Window.history.go(n);  //n为负数是后退，正数是前进，0是当前页面</p>
+<p>3）Length属性值，了解历史记录栈中一共有多少页</p>
+<p>4）读取当前状态<br>History.state直接读取当前历史记录条目的状态</p>
+<p>5） pushState() —-HTML5新增<br>pushSate(stata,title,url)：添加和修改历史记录条目<br>state： 一个JavaScript对象，与用pushState()方法创建的新历史记录条目关联。<br>title ：  FireFox浏览器目前会忽略该参数，虽然以后可能会用上。考虑到未来可能会对该方法进行修改，传一个空字符串会比较安全。或者，你也可以传入一个简短的标题，标明将要进入的状态。<br>url ：  新的历史记录条目的地址。浏览器不会在调用pushState()方法后加载该地址，但之后，可能会试图加载，例如用户重启浏览器。新的URL不一定是绝对路径；如果是相对路径，它将以当前URL为基准；传入的URL与当前URL应该是同源的，否则，pushState()会抛出异常。该参数是可选的；不指定的话则为文档当前URL。</p>
+<p>pushState永远不会触发hashchange事件，即使新地址只变更了hash.<br>pushState将当前url和history.state加入到history中，并用新的state和url替换当前，不会造成页面刷新，它带来的地址栏的改变不会出发hash跳转效果，只是将这个地址添加到历史记录中。</p>
+<p>6）修改历史记录条目<br>history.replaceState(state, title, url)：用新的state和URL替换当前。不会造成页面刷新。<br>replaceState()：修改浏览器当前历史记录条目。<br>不同于pushState,replaceState()会修改当前历史记录条目而非创建新的条目。</p>
+<p>7）popstate事件<br>每当激活的历史纪录发生变化时，都会触发popstate事件。如果被激活的历史纪录条目是由pushState所创建，或是被replaceState方法影响到，popstate事件的状态属性将包含历史纪录的状态对象的一个拷贝。<br>前进/后退触发popstate事件。</p>
+<p>8）代码阅读<br>代码：<br>history.pushState(“”,””,”?name=1”);<br>history.pushState(“”,””,”?name=2”);<br>history.pushState(“”,””,”?name=3”);<br>history.pushState(“”,””,”?name=4”); //代码执行到此处历史记录栈的情况如图history_1<br><img src="/img/history_01.jpg" alt="历史记录栈"><br>history.replaceState(“”,””,”?name=5”);<br><img src="/img/history_02.jpg" alt="历史记录栈"><br>history.back();<br><img src="/img/history_03.jpg" alt="历史记录栈"><br>history.go(1);<br>history.go(-2);<br><img src="/img/history_04.jpg" alt="历史记录栈"><br>history.pushState(“”,””,”?name=6”);<br><img src="/img/history_05.jpg" alt="历史记录栈"><br>history.replaceState(“”,””,”?name=7”);<br><img src="/img/history_06.jpg" alt="历史记录栈"></p>
+<h5 id="资料参考链接"><a href="#资料参考链接" class="headerlink" title="资料参考链接"></a><a href="https://developer.mozilla.org/zh-CN/docs/DOM/Manipulating_the_browser_history" target="_blank" rel="external">资料参考链接</a></h5></div></article><div class="tags"><a href="/tags/Javascript/">Javascript</a><a href="/tags/History对象/">History对象</a></div><div class="paginator"><a href="/2016/09/19/qingdaoTravel/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div data-thread-key="http://yoursite.com/2016/11/07/bowerHistory/index.html" data-title="浏览器的历史记录" data-url="http://yoursite.com/2016/11/07/bowerHistory/index.html" class="ds-thread"></div><script type="text/javascript">var duoshuoQuery = {short_name: "cherishing" };
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();</script></section></section><footer><div class="copyright"><p class="power">Powered by <a href="https://hexo.io/">Hexo</a> and Theme by <a href="https://github.com/ahonn/hexo-theme-even"> Even</a></p><p class="since">&copy;2016<span class="heart"><i class="iconfont icon-heart"></i></span><span class="author">Jasmine</span></p></div><label id="back2top"><i class="iconfont icon-up"></i></label></footer></div><script src="/js/zepto.min.js"></script><script src="/js/theme.js"></script></body></html>
