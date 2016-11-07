@@ -433,11 +433,27 @@ header {
       padding: 20px 10px; }
       header .nav .nav-link a {
         font-size: 18px;
-        line-height: 1.5; }
-      header .nav .nav-link :hover, header .nav .nav-link .active {
-        transition: 0.2s ease-out;
+        position: relative; }
+      header .nav .nav-link .active {
         border-radius: 2px;
-        border-bottom: 2px solid #16982B; }
+        border-bottom: 3px solid #16982B; }
+      header .nav .nav-link a:hover:before {
+        left: 0;
+        right: 0; }
+      header .nav .nav-link a::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        bottom: -3px;
+        background: #16982B;
+        height: 3px;
+        transition-property: left, right;
+        transition-duration: 0.4s;
+        transition-timing-function: ease-out; }
+      header .nav .nav-link .active:hover::before {
+        left: 50%;
+        right: 50%; }
 
 footer {
   padding-top: 2em; }
