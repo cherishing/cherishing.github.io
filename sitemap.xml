@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/11/08/autumnInBeijing/</loc>
+    
+    <lastmod>2016-11-08T12:44:29.134Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/09/19/qingdaoTravel/</loc>
+    
+    <lastmod>2016-11-08T05:51:52.232Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/11/07/bowerHistory/</loc>
     
     <lastmod>2016-11-07T12:33:24.534Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/2016/09/07/meetHexo/</loc>
     
     <lastmod>2016-11-07T11:27:31.812Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/09/19/qingdaoTravel/</loc>
-    
-    <lastmod>2016-11-07T11:27:07.263Z</lastmod>
     
   </url>
   
