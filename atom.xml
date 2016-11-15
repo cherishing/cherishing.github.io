@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-15T11:33:45.414Z</updated>
+  <updated>2016-11-15T11:36:28.744Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2016/11/15/css3-shape/"/>
     <id>http://yoursite.com/2016/11/15/css3-shape/</id>
     <published>2016-11-15T10:31:13.000Z</published>
-    <updated>2016-11-15T11:33:45.414Z</updated>
+    <updated>2016-11-15T11:36:28.744Z</updated>
     
-    <content type="html"><![CDATA[<p>最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。</p>
+    <content type="html"><![CDATA[<p>最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。<br>每一天都在进步。<br><a id="more"></a></p>
 <h2 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h2><ul>
 <li>border-radius<br>语法： border-radius:1-4 length|% / 1-4 length|%;<br>它是的简写形式如：border-radius：50%；但它实际上是：<br>如： border-radius:10px 20px 30px 40px / 40px 30px 20px 10px<br>斜杠/左边是四个圆角的水平半径，右边是四个圆角的垂直半径；但是通常我们很少写右边的参数，那就是默认右边等于左边的值<br>border-top-left-radius<br>border-top-right-radius<br>border-bottom-right-radius<br>border-bottom-left-radius<br>左上角开始，顺时针，空格分隔各个值<br><img src="/img/border-radius_01.png" alt="bordr-raidus" width="50%" height="50%"><br>绿色指的是水平半径，紫色指的是垂直半径。<br>示例：<a href="http://codepen.io/cherishing/pen/NbNmYr" target="_blank" rel="external">http://codepen.io/cherishing/pen/NbNmYr</a><h4 id="椭圆-1"><a href="#椭圆-1" class="headerlink" title="椭圆"></a>椭圆</h4><img src="/img/border-radius_02.png" alt="bordr-raidus"><br>如上图，通过“/”单独指定水平半径和垂直半径<br>自适应椭圆：<br>border-radius:50% &lt;=&gt; border-radius:50% / 50%;<br>示例：<a href="http://codepen.io/cherishing/pen/dOMJyj" target="_blank" rel="external">http://codepen.io/cherishing/pen/dOMJyj</a></li>
 </ul>
@@ -48,8 +48,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。&lt;/p&gt;
-&lt;h2 
+      &lt;p&gt;最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。&lt;br&gt;每一天都在进步。&lt;br&gt;
     
     </summary>
     
