@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-09T01:51:30.859Z</updated>
+  <updated>2016-11-15T11:33:45.414Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS3 - 形状</title>
+    <link href="http://yoursite.com/2016/11/15/css3-shape/"/>
+    <id>http://yoursite.com/2016/11/15/css3-shape/</id>
+    <published>2016-11-15T10:31:13.000Z</published>
+    <updated>2016-11-15T11:33:45.414Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。</p>
+<h2 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h2><ul>
+<li>border-radius<br>语法： border-radius:1-4 length|% / 1-4 length|%;<br>它是的简写形式如：border-radius：50%；但它实际上是：<br>如： border-radius:10px 20px 30px 40px / 40px 30px 20px 10px<br>斜杠/左边是四个圆角的水平半径，右边是四个圆角的垂直半径；但是通常我们很少写右边的参数，那就是默认右边等于左边的值<br>border-top-left-radius<br>border-top-right-radius<br>border-bottom-right-radius<br>border-bottom-left-radius<br>左上角开始，顺时针，空格分隔各个值<br><img src="/img/border-radius_01.png" alt="bordr-raidus" width="50%" height="50%"><br>绿色指的是水平半径，紫色指的是垂直半径。<br>示例：<a href="http://codepen.io/cherishing/pen/NbNmYr" target="_blank" rel="external">http://codepen.io/cherishing/pen/NbNmYr</a><h4 id="椭圆-1"><a href="#椭圆-1" class="headerlink" title="椭圆"></a>椭圆</h4><img src="/img/border-radius_02.png" alt="bordr-raidus"><br>如上图，通过“/”单独指定水平半径和垂直半径<br>自适应椭圆：<br>border-radius:50% &lt;=&gt; border-radius:50% / 50%;<br>示例：<a href="http://codepen.io/cherishing/pen/dOMJyj" target="_blank" rel="external">http://codepen.io/cherishing/pen/dOMJyj</a></li>
+</ul>
+<p><strong> 1)  半椭圆的绘制 </strong><br><img src="/img/border-radius_03.png" alt="bordr-raidus" width="50%" height="50%"><br>css-code如：<br>.circle{<br>  width:300px;<br>  height:200px;<br>  margin:10px auto;<br>  background:#f00;<br>  border-radius:50% /100% 100% 0 0;<br>}<br>上图的半椭圆是沿x轴劈开的，它的左右水平半径各占容器宽度的一般，所以水平半径为50%；而垂直半径只有左上角，右上角有，且垂直半径占据了容器的整个高度，所以垂直半径为100% 100% 0 0，结合起来就是上面css-code中的。<br>可能很多人和我第一次写的一样，错误的写法如：border-radius:50% 50% 0 0;<br>以为这样就可以生成半椭圆，但实际上这样是没有正确理解水平半径和垂直半径以及容器宽高的关系。<br>百分比是按容器宽高来给定的，一半就是50%，撑开了整个容器的高度就是100%。</p>
+<p><strong> 2)  四分之一椭圆 </strong><br>示例：<a href="http://codepen.io/cherishing/pen/pNypEN" target="_blank" rel="external">http://codepen.io/cherishing/pen/pNypEN</a></p>
+<h3 id="圆"><a href="#圆" class="headerlink" title="圆"></a>圆</h3><p><img src="/img/border-radius_04.png" alt="bordr-raidus" width="50%" height="50%">   <strong>宽高相等显示圆</strong>；</p>
+<p>指定任何大于100px的半径，仍然可以得到一个圆形。<br>原因：<br>     当任意两个相邻圆角的半径之和超越border box的尺寸时，用户代理必须按比例减小各个边框半径所使用的值，直到它们不会相互重叠。<br>                                                            —–css背景与边框<br>示例：<a href="示例：http://codepen.io/cherishing/pen/aBNVeV
+">http://codepen.io/cherishing/pen/aBNVeV<br></a></p>
+<h2 id="平行四边形"><a href="#平行四边形" class="headerlink" title="平行四边形"></a>平行四边形</h2><p>1、利用transform:skew()<br>Skew()变换坐标系：y轴顺时针为正，x轴逆时针为正（注：它的y轴正方向是水平向右，x轴正方向是水平向下）<br>示例：<a href="http://codepen.io/cherishing/pen/XNdVaZ" target="_blank" rel="external">http://codepen.io/cherishing/pen/XNdVaZ</a></p>
+<p><font color="red">Bug: </font> </p>
+<p><div>该属性会造成里面的文字也跟着变形，有什么办法只让容器变形，内容不 变形吗？？？？</div><br>1）对里面的内容再一次应用反向的shew()变形；从而抵消容器的变形效果<br>对内容添加一个div<br>示例：<a href="http://codepen.io/cherishing/pen/ENKooR" target="_blank" rel="external">http://codepen.io/cherishing/pen/ENKooR</a></p>
+<p>2、利用伪元素<br>方法：利用伪元素及定位属性，产生一个方块，然后对伪元素设置样式，并将其放置在宿主元素下层。<br>示例：<a href="http://codepen.io/cherishing/pen/QGNaBp" target="_blank" rel="external">http://codepen.io/cherishing/pen/QGNaBp</a></p>
+<h2 id="菱形"><a href="#菱形" class="headerlink" title="菱形"></a>菱形</h2><p>利用transform:rotate(angle);<br>angle为正数,表示顺时针旋转；<br>angle为负数,表示逆时针旋转;<br><img src="/img/css3-diamond.png" alt="菱形"><br>示例：<a href="http://codepen.io/cherishing/pen/bBpPBm" target="_blank" rel="external">http://codepen.io/cherishing/pen/bBpPBm</a></p>
+<ul>
+<li>菱形图片<br>  1）利用前面的平行四边形相似的处理方法，img外面套一个div，对容器旋转45度角；图片-45度角<br>  正常：<img src="/img/css3-diamond2.png" alt="菱形"><br>  但是有个hack，处理非正方形图片就会原型毕露。如下图：<br>  <img src="/img/css3-diamond3.png" alt="菱形"><br>  2）clip-path剪裁路径（实验技术）<br>  实验属性；没有被主流浏览器支持（包括ie和火狐）；但在webkit浏览器中，它可以使用。<br>  在现代浏览器中需要使用 -webkit- 前缀<br>  -webkit-clip-path:polygon(50% 0, 100% 50%, 50% 100%, 0 50%);<br>  示例：<a href="http://codepen.io/cherishing/pen/MbyLgV" target="_blank" rel="external">http://codepen.io/cherishing/pen/MbyLgV</a></li>
+</ul>
+<h2 id="切角效果"><a href="#切角效果" class="headerlink" title="切角效果"></a>切角效果</h2><p>1、linear-gradient(angle, color….color)<br>第一个参数指明渐变方向，<br>0deg表示从下往上，90deg表示渐变从左往右，180deg表示渐变从上往下，270deg表示渐变从右往左，顺时针 ；或者用to+关键字表示；to top等于0deg;<br>如：div { background: linear-gradient(10deg, red, blue) }<br><img src="/img/qiejiao_01.png" alt="菱形"><br>渐变本本质上就是background-image,所以我们可以像对待background-image一样使用background-size调整大小;<br>示例：<a href="http://codepen.io/cherishing/pen/zoqXqE" target="_blank" rel="external">http://codepen.io/cherishing/pen/zoqXqE</a><br>2、切角效果<br>一个角：<br>示例：<a href="http://codepen.io/cherishing/pen/gLrzEP" target="_blank" rel="external">http://codepen.io/cherishing/pen/gLrzEP</a></p>
+<p>两个角、四个角：<br>示例：<a href="http://codepen.io/cherishing/pen/WowJBj" target="_blank" rel="external">http://codepen.io/cherishing/pen/WowJBj</a></p>
+<p>或者用clip-path:polygon()</p>
+<h2 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h2><p>1、基于transform的解决方法：<br>1）画一个左右两部分颜色不同的圆<br>2）把左（右）部分用伪元素遮盖住<br>3）通过旋转伪元素实现<br>区分小于50%和大于50%；<br>下面示例只实现的小于50%：<br>示例：<a href="http://codepen.io/cherishing/pen/yVJKzd" target="_blank" rel="external">http://codepen.io/cherishing/pen/yVJKzd</a></p>
+<p>大于50%的处理方法:固定50%部分的颜色，通过旋转露出剩余的部分，所以给的角度只能在0~.5trun。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。&lt;/p&gt;
+&lt;h2 
+    
+    </summary>
+    
+    
+      <category term="CSS3" scheme="http://yoursite.com/tags/CSS3/"/>
+    
+      <category term="CSS3形状" scheme="http://yoursite.com/tags/CSS3%E5%BD%A2%E7%8A%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>北京的秋韵</title>
@@ -349,7 +394,7 @@
     <link href="http://yoursite.com/2016/09/07/meetHexo/"/>
     <id>http://yoursite.com/2016/09/07/meetHexo/</id>
     <published>2016-09-07T06:43:22.893Z</published>
-    <updated>2016-11-07T11:27:31.812Z</updated>
+    <updated>2016-11-15T10:45:48.030Z</updated>
     
     <content type="html"><![CDATA[<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
 <li>node</li>
