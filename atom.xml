@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-15T11:36:28.744Z</updated>
+  <updated>2016-11-25T10:53:28.408Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,15 +16,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>原型与原型链</title>
+    <link href="http://yoursite.com/2016/11/25/prototypeChain/"/>
+    <id>http://yoursite.com/2016/11/25/prototypeChain/</id>
+    <published>2016-11-25T09:32:48.000Z</published>
+    <updated>2016-11-25T10:53:28.408Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>本文主要讲解 prototype, <strong>proto</strong>, constructor，instanceof各自的含义，构造函数，原型对象，实例之间的关系;描述出查找对象的属性的过程，原型链是如果构成的等等。<br><a id="more"></a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每周一次的前端分享，想了几天实在是不知道分享啥，正好最近在看面向对象，那就讲讲原型和原型链吧，在我不理解它们的时候，每次面试只要听到这几个词就吓得半死，简直是前端的恶魔。学东西就是这样吧，越是不理解的越害怕以为很难，其实只要认真去学去理解，没有自己想象的那么难。还是那句话，不懂的总有一天会懂，共勉。</p>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="原型（prototype）"><a href="#原型（prototype）" class="headerlink" title="原型（prototype）"></a>原型（prototype）</h3><p><span style="color:red; font-weight:bolder;">原型（prototype）</span>：当一个函数被声明时，该函数下默认有一个属性：prototype，该属性的值是一个对象，当我们调用一个对象的属性或者方法的时候，如果该对象自身没有该属性或者方法，则会调用到该对象构造函数下的prototype的属性和方法。<br>简言之,prototype是声明一个函数的时候，在该函数下js创建的一个属性，这个属性指向函数的原型对象。</p>
+<p>prototype的使用：通过某个构造函数创建出来的对象都可以公用的属性和方法。</p>
+<p><strong>code:</strong>:<br>    function AA(){};<br>    var a = new AA();<br>    console.log(AA.prototype);  //Object,只有function定义的对象有该属性<br>    console.log(a.prototype);   //undefined,new操作符生成的对象没有该属性</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p><span style="color:red; font-weight:bolder;">constructor(构造函数)</span>：默认情况下，所有的原型对象都会自动获得一个constructor<br>属性，这个属性包含一个指向prototype属性所在函数的指针。<br><strong>code:</strong><br><img src="/img/prototype_constructor01.png" alt="prototype"><br><br><br>输出结果：<br><img src="/img/prototype_constructor02.png" alt="prototype"></p>
+<h3 id="proto"><a href="#proto" class="headerlink" title="proto"></a><strong>proto</strong></h3><p><span style="color: red; font-weight:bolder;"><strong>proto</strong></span>：当调用构造函<br>数创建一个新实例后，该实例的内部将包含一个指针（内部属性[[prototype]]），指向构造函数的原型对象。在ECMA-262第五版中这个指针叫做[[prototype]]。<br>虽然在脚本中没有标准的方式访问[[prototype]]，但浏览器在每个对象上都支持一个属性<br><strong>proto</strong>；而在其他实现中，该属性对脚本完全是不可见的。</p>
+<p>栗子：</p>
+<p><img src="/img/prototype__proto__01.png" alt="__proto__"><br><br><br>输出结果：<br><img src="/img/prototype__proto__02.png" alt="__proto__"></p>
+<h3 id="构造函数、原型对象、实例之间的关系"><a href="#构造函数、原型对象、实例之间的关系" class="headerlink" title="构造函数、原型对象、实例之间的关系"></a>构造函数、原型对象、实例之间的关系</h3><p>栗子：</p>
+<p><img src="/img/prototype_01.png" alt="prototype"><br>解释：声明了一个构造函数Person，则该构造函数下会自动创建一个prototype属性；手动的给Person.prototype加上了name,sex,action等属性；实例化new Person(),生成实例对<br>象p1;实例对象p1的<strong>proto</strong>指向了Person的原型对象，而Person的原型对象的constructor指向了构造函数Person,但是Person构造函数的prototype又指回了Person的原型对象。<br>换句话说，实例和构造函数没有直接关系；这个连接存在与实例和构造函数的原型对象之间。因此：Person.prototype === p1.<strong>proto</strong>.<br><br><br>详细描述图：<br><img src="/img/prototype_02.png" alt="prototype"></p>
+<h3 id="查找对象的属性"><a href="#查找对象的属性" class="headerlink" title="查找对象的属性"></a>查找对象的属性</h3><p>当代码读取某个对象的某个属性的时候，都会执行一次搜索，目标是具有给定名字的属性，搜索首先会从对象实例本身开始。如果在实例中找到了给定名字的属性，则返回该属性的值；如果没有找到，则继续搜索指针指向的原型对象。</p>
+<h4 id="实例属性和原型属性"><a href="#实例属性和原型属性" class="headerlink" title="实例属性和原型属性"></a>实例属性和原型属性</h4><p>1）code:</p>
+<p><img src="/img/prototype__prototype01.png" alt="属性"><br>在实例中添加一个属性，而该属性与实例原型中的一个属性同名，我们就在实例中创造该属性，而屏蔽原型中的该属性（阻止我们访问原型中的那个属性，而不会修改那个属性）。虽然我们可以通过实例访问保持在原型中的值，但却不能通过对象实例重写原型中的值。<br>2）code:<br><img src="/img/prototype__prototype02.png" alt="属性"></p>
+<p>即使将p1.name设置为null,也只会在实例中设置这个属性，而不会恢复其指向原型的连接。只有通过delete操作符删除实例属性，才能够重新访问原型中的属性。</p>
+<p>效果如：<br><img src="/img/prototype__prototype03.png" alt="属性"></p>
+<h4 id="判断属性存在原型上还是实例上"><a href="#判断属性存在原型上还是实例上" class="headerlink" title="判断属性存在原型上还是实例上"></a>判断属性存在原型上还是实例上</h4><p>hasOwnPrototype():只在给定属性存在对象实例中，才会返回true。<br>in操作符：它会在通过对象能够访问给定属性时返回true，无论该属性存在于实例中还是原型中。</p>
+<p>方法：<br><strong> function hasPrototypeProperty(object, name){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return !object.hasOwnPrototype(name) &amp;&amp; (name in object);<br>} </strong></p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>原型对象也是普通的对象，并且也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链（prototype chain）</p>
+<p><img src="/img/prototype_chain01.png" alt="原型链"><br><br><br><br><br><img src="/img/prototype_chain02.png" alt="原型链"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简述&quot;&gt;&lt;a href=&quot;#简述&quot; class=&quot;headerlink&quot; title=&quot;简述&quot;&gt;&lt;/a&gt;简述&lt;/h2&gt;&lt;p&gt;本文主要讲解 prototype, &lt;strong&gt;proto&lt;/strong&gt;, constructor，instanceof各自的含义，构造函数，原型对象，实例之间的关系;描述出查找对象的属性的过程，原型链是如果构成的等等。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="原型" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B/"/>
+    
+      <category term="原型链" scheme="http://yoursite.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSS3 - 形状</title>
     <link href="http://yoursite.com/2016/11/15/css3-shape/"/>
     <id>http://yoursite.com/2016/11/15/css3-shape/</id>
     <published>2016-11-15T10:31:13.000Z</published>
-    <updated>2016-11-15T11:36:28.744Z</updated>
+    <updated>2016-11-25T09:34:51.611Z</updated>
     
     <content type="html"><![CDATA[<p>最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。<br>每一天都在进步。<br><a id="more"></a></p>
 <h2 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h2><ul>
-<li>border-radius<br>语法： border-radius:1-4 length|% / 1-4 length|%;<br>它是的简写形式如：border-radius：50%；但它实际上是：<br>如： border-radius:10px 20px 30px 40px / 40px 30px 20px 10px<br>斜杠/左边是四个圆角的水平半径，右边是四个圆角的垂直半径；但是通常我们很少写右边的参数，那就是默认右边等于左边的值<br>border-top-left-radius<br>border-top-right-radius<br>border-bottom-right-radius<br>border-bottom-left-radius<br>左上角开始，顺时针，空格分隔各个值<br><img src="/img/border-radius_01.png" alt="bordr-raidus" width="50%" height="50%"><br>绿色指的是水平半径，紫色指的是垂直半径。<br>示例：<a href="http://codepen.io/cherishing/pen/NbNmYr" target="_blank" rel="external">http://codepen.io/cherishing/pen/NbNmYr</a><h4 id="椭圆-1"><a href="#椭圆-1" class="headerlink" title="椭圆"></a>椭圆</h4><img src="/img/border-radius_02.png" alt="bordr-raidus"><br>如上图，通过“/”单独指定水平半径和垂直半径<br>自适应椭圆：<br>border-radius:50% &lt;=&gt; border-radius:50% / 50%;<br>示例：<a href="http://codepen.io/cherishing/pen/dOMJyj" target="_blank" rel="external">http://codepen.io/cherishing/pen/dOMJyj</a></li>
+<li>border-radius<br>语法： border-radius:1-4 length|% / 1-4 length|%;<br>它是的简写形式如：border-radius：50%；但它实际上是：<br>如： border-radius:10px 20px 30px 40px / 40px 30px 20px 10px<br>斜杠/左边是四个圆角的水平半径，右边是四个圆角的垂直半径；但是通常我们很少写右边的参数，那就是默认右边等于左边的值<br>border-top-left-radius<br>border-top-right-radius<br>border-bottom-right-radius<br>border-bottom-left-radius<br>左上角开始，顺时针，空格分隔各个值<br><img src="/img/border-radius_01.png" alt="bordr-raidus" width="50%" height="50%"><br>绿色指的是水平半径，紫色指的是垂直半径。<br>示例：<a href="http://codepen.io/cherishing/pen/NbNmYr" target="_blank" rel="external">http://codepen.io/cherishing/pen/NbNmYr</a><br>椭圆：<br><img src="/img/border-radius_02.png" alt="bordr-raidus"><br>如上图，通过“/”单独指定水平半径和垂直半径<br>自适应椭圆：<br>border-radius:50% &lt;=&gt; border-radius:50% / 50%;<br>示例：<a href="http://codepen.io/cherishing/pen/dOMJyj" target="_blank" rel="external">http://codepen.io/cherishing/pen/dOMJyj</a></li>
 </ul>
 <p><strong> 1)  半椭圆的绘制 </strong><br><img src="/img/border-radius_03.png" alt="bordr-raidus" width="50%" height="50%"><br>css-code如：<br>.circle{<br>  width:300px;<br>  height:200px;<br>  margin:10px auto;<br>  background:#f00;<br>  border-radius:50% /100% 100% 0 0;<br>}<br>上图的半椭圆是沿x轴劈开的，它的左右水平半径各占容器宽度的一般，所以水平半径为50%；而垂直半径只有左上角，右上角有，且垂直半径占据了容器的整个高度，所以垂直半径为100% 100% 0 0，结合起来就是上面css-code中的。<br>可能很多人和我第一次写的一样，错误的写法如：border-radius:50% 50% 0 0;<br>以为这样就可以生成半椭圆，但实际上这样是没有正确理解水平半径和垂直半径以及容器宽高的关系。<br>百分比是按容器宽高来给定的，一半就是50%，撑开了整个容器的高度就是100%。</p>
 <p><strong> 2)  四分之一椭圆 </strong><br>示例：<a href="http://codepen.io/cherishing/pen/pNypEN" target="_blank" rel="external">http://codepen.io/cherishing/pen/pNypEN</a></p>
