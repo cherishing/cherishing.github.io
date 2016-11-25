@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-25T10:56:06.124Z</updated>
+  <updated>2016-11-25T10:57:06.005Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/11/25/prototypeChain/"/>
     <id>http://yoursite.com/2016/11/25/prototypeChain/</id>
     <published>2016-11-25T09:32:48.000Z</published>
-    <updated>2016-11-25T10:56:06.124Z</updated>
+    <updated>2016-11-25T10:57:06.005Z</updated>
     
     <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>本文主要讲解 prototype, <strong>proto</strong>, constructor，instanceof各自的含义，构造函数，原型对象，实例之间的关系;描述出查找对象的属性的过程，原型链是如何构成的等等。<br><a id="more"></a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每周一次的前端分享，想了几天实在是不知道分享啥，正好最近在看面向对象，那就讲讲原型和原型链吧，在我不理解它们的时候，每次面试只要听到这几个词就吓得半死，简直是前端的恶魔。学东西就是这样吧，越是不理解的越害怕以为很难，其实只要认真去学去理解，没有自己想象的那么难。还是那句话，不懂的总有一天会懂，共勉。</p>
