@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-25T10:57:06.005Z</updated>
+  <updated>2016-12-15T05:35:08.019Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,28 +20,28 @@
     <link href="http://yoursite.com/2016/11/25/prototypeChain/"/>
     <id>http://yoursite.com/2016/11/25/prototypeChain/</id>
     <published>2016-11-25T09:32:48.000Z</published>
-    <updated>2016-11-25T10:57:06.005Z</updated>
+    <updated>2016-12-15T05:35:08.019Z</updated>
     
     <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>本文主要讲解 prototype, <strong>proto</strong>, constructor，instanceof各自的含义，构造函数，原型对象，实例之间的关系;描述出查找对象的属性的过程，原型链是如何构成的等等。<br><a id="more"></a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每周一次的前端分享，想了几天实在是不知道分享啥，正好最近在看面向对象，那就讲讲原型和原型链吧，在我不理解它们的时候，每次面试只要听到这几个词就吓得半死，简直是前端的恶魔。学东西就是这样吧，越是不理解的越害怕以为很难，其实只要认真去学去理解，没有自己想象的那么难。还是那句话，不懂的总有一天会懂，共勉。</p>
 <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="原型（prototype）"><a href="#原型（prototype）" class="headerlink" title="原型（prototype）"></a>原型（prototype）</h3><p><span style="color:red; font-weight:bolder;">原型（prototype）</span>：当一个函数被声明时，该函数下默认有一个属性：prototype，该属性的值是一个对象，当我们调用一个对象的属性或者方法的时候，如果该对象自身没有该属性或者方法，则会调用到该对象构造函数下的prototype的属性和方法。<br>简言之,prototype是声明一个函数的时候，在该函数下js创建的一个属性，这个属性指向函数的原型对象。</p>
 <p>prototype的使用：通过某个构造函数创建出来的对象都可以公用的属性和方法。</p>
 <p><strong>code:</strong>:<br>    function AA(){};<br>    var a = new AA();<br>    console.log(AA.prototype);  //Object,只有function定义的对象有该属性<br>    console.log(a.prototype);   //undefined,new操作符生成的对象没有该属性</p>
-<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p><span style="color:red; font-weight:bolder;">constructor(构造函数)</span>：默认情况下，所有的原型对象都会自动获得一个constructor<br>属性，这个属性包含一个指向prototype属性所在函数的指针。<br><strong>code:</strong><br><img src="/img/prototype_constructor01.png" alt="prototype"><br><br><br>输出结果：<br><img src="/img/prototype_constructor02.png" alt="prototype"></p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p><span style="color:red; font-weight:bolder;">constructor(构造函数)</span>：默认情况下，所有的原型对象都会自动获得一个constructor<br>属性，这个属性包含一个指向prototype属性所在函数的指针。<br><strong>code:</strong><br><img src="/img/protoChain/prototype_constructor01.png" alt="prototype"><br><br><br>输出结果：<br><img src="/img/protoChain/prototype_constructor02.png" alt="prototype"></p>
 <h3 id="proto"><a href="#proto" class="headerlink" title="proto"></a><strong>proto</strong></h3><p><span style="color: red; font-weight:bolder;"><strong>proto</strong></span>：当调用构造函<br>数创建一个新实例后，该实例的内部将包含一个指针（内部属性[[prototype]]），指向构造函数的原型对象。在ECMA-262第五版中这个指针叫做[[prototype]]。<br>虽然在脚本中没有标准的方式访问[[prototype]]，但浏览器在每个对象上都支持一个属性<br><strong>proto</strong>；而在其他实现中，该属性对脚本完全是不可见的。</p>
 <p>栗子：</p>
-<p><img src="/img/prototype__proto__01.png" alt="__proto__"><br><br><br>输出结果：<br><img src="/img/prototype__proto__02.png" alt="__proto__"></p>
+<p><img src="/img/protoChain/prototype__proto__01.png" alt="__proto__"><br><br><br>输出结果：<br><img src="/img/protoChain/prototype__proto__02.png" alt="__proto__"></p>
 <h3 id="构造函数、原型对象、实例之间的关系"><a href="#构造函数、原型对象、实例之间的关系" class="headerlink" title="构造函数、原型对象、实例之间的关系"></a>构造函数、原型对象、实例之间的关系</h3><p>栗子：</p>
-<p><img src="/img/prototype_01.png" alt="prototype"><br>解释：声明了一个构造函数Person，则该构造函数下会自动创建一个prototype属性；手动的给Person.prototype加上了name,sex,action等属性；实例化new Person(),生成实例对<br>象p1;实例对象p1的<strong>proto</strong>指向了Person的原型对象，而Person的原型对象的constructor指向了构造函数Person,但是Person构造函数的prototype又指回了Person的原型对象。<br>换句话说，实例和构造函数没有直接关系；这个连接存在与实例和构造函数的原型对象之间。因此：Person.prototype === p1.<strong>proto</strong>.<br><br><br>详细描述图：<br><img src="/img/prototype_02.png" alt="prototype"></p>
+<p><img src="/img/protoChain/prototype_01.png" alt="prototype"><br>解释：声明了一个构造函数Person，则该构造函数下会自动创建一个prototype属性；手动的给Person.prototype加上了name,sex,action等属性；实例化new Person(),生成实例对<br>象p1;实例对象p1的<strong>proto</strong>指向了Person的原型对象，而Person的原型对象的constructor指向了构造函数Person,但是Person构造函数的prototype又指回了Person的原型对象。<br>换句话说，实例和构造函数没有直接关系；这个连接存在与实例和构造函数的原型对象之间。因此：Person.prototype === p1.<strong>proto</strong>.<br><br><br>详细描述图：<br><img src="/img/protoChain/prototype_02.png" alt="prototype"></p>
 <h3 id="查找对象的属性"><a href="#查找对象的属性" class="headerlink" title="查找对象的属性"></a>查找对象的属性</h3><p>当代码读取某个对象的某个属性的时候，都会执行一次搜索，目标是具有给定名字的属性，搜索首先会从对象实例本身开始。如果在实例中找到了给定名字的属性，则返回该属性的值；如果没有找到，则继续搜索指针指向的原型对象。</p>
 <h4 id="实例属性和原型属性"><a href="#实例属性和原型属性" class="headerlink" title="实例属性和原型属性"></a>实例属性和原型属性</h4><p>1）code:</p>
-<p><img src="/img/prototype__prototype01.png" alt="属性"><br>在实例中添加一个属性，而该属性与实例原型中的一个属性同名，我们就在实例中创造该属性，而屏蔽原型中的该属性（阻止我们访问原型中的那个属性，而不会修改那个属性）。虽然我们可以通过实例访问保持在原型中的值，但却不能通过对象实例重写原型中的值。<br>2）code:<br><img src="/img/prototype__prototype02.png" alt="属性"></p>
+<p><img src="/img/protoChain/prototype__prototype01.png" alt="属性"><br>在实例中添加一个属性，而该属性与实例原型中的一个属性同名，我们就在实例中创造该属性，而屏蔽原型中的该属性（阻止我们访问原型中的那个属性，而不会修改那个属性）。虽然我们可以通过实例访问保持在原型中的值，但却不能通过对象实例重写原型中的值。<br>2）code:<br><img src="/img/protoChain/prototype__prototype02.png" alt="属性"></p>
 <p>即使将p1.name设置为null,也只会在实例中设置这个属性，而不会恢复其指向原型的连接。只有通过delete操作符删除实例属性，才能够重新访问原型中的属性。</p>
-<p>效果如：<br><img src="/img/prototype__prototype03.png" alt="属性"></p>
+<p>效果如：<br><img src="/img/protoChain/prototype__prototype03.png" alt="属性"></p>
 <h4 id="判断属性存在原型上还是实例上"><a href="#判断属性存在原型上还是实例上" class="headerlink" title="判断属性存在原型上还是实例上"></a>判断属性存在原型上还是实例上</h4><p>hasOwnPrototype():只在给定属性存在对象实例中，才会返回true。<br>in操作符：它会在通过对象能够访问给定属性时返回true，无论该属性存在于实例中还是原型中。</p>
 <p>方法：<br><strong> function hasPrototypeProperty(object, name){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return !object.hasOwnPrototype(name) &amp;&amp; (name in object);<br>} </strong></p>
 <h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>原型对象也是普通的对象，并且也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链（prototype chain）</p>
-<p><img src="/img/prototype_chain01.png" alt="原型链"><br><br><br><br><br><img src="/img/prototype_chain02.png" alt="原型链"></p>
+<p><img src="/img/protoChain/prototype_chain01.png" alt="原型链"><br><br><br><br><br><img src="/img/protoChain/prototype_chain02.png" alt="原型链"></p>
 ]]></content>
     
     <summary type="html">
@@ -64,26 +64,26 @@
     <link href="http://yoursite.com/2016/11/15/css3-shape/"/>
     <id>http://yoursite.com/2016/11/15/css3-shape/</id>
     <published>2016-11-15T10:31:13.000Z</published>
-    <updated>2016-11-25T09:34:51.611Z</updated>
+    <updated>2016-12-15T05:33:25.596Z</updated>
     
     <content type="html"><![CDATA[<p>最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。<br>每一天都在进步。<br><a id="more"></a></p>
 <h2 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h2><ul>
-<li>border-radius<br>语法： border-radius:1-4 length|% / 1-4 length|%;<br>它是的简写形式如：border-radius：50%；但它实际上是：<br>如： border-radius:10px 20px 30px 40px / 40px 30px 20px 10px<br>斜杠/左边是四个圆角的水平半径，右边是四个圆角的垂直半径；但是通常我们很少写右边的参数，那就是默认右边等于左边的值<br>border-top-left-radius<br>border-top-right-radius<br>border-bottom-right-radius<br>border-bottom-left-radius<br>左上角开始，顺时针，空格分隔各个值<br><img src="/img/border-radius_01.png" alt="bordr-raidus" width="50%" height="50%"><br>绿色指的是水平半径，紫色指的是垂直半径。<br>示例：<a href="http://codepen.io/cherishing/pen/NbNmYr" target="_blank" rel="external">http://codepen.io/cherishing/pen/NbNmYr</a><br>椭圆：<br><img src="/img/border-radius_02.png" alt="bordr-raidus"><br>如上图，通过“/”单独指定水平半径和垂直半径<br>自适应椭圆：<br>border-radius:50% &lt;=&gt; border-radius:50% / 50%;<br>示例：<a href="http://codepen.io/cherishing/pen/dOMJyj" target="_blank" rel="external">http://codepen.io/cherishing/pen/dOMJyj</a></li>
+<li>border-radius<br>语法： border-radius:1-4 length|% / 1-4 length|%;<br>它是的简写形式如：border-radius：50%；但它实际上是：<br>如： border-radius:10px 20px 30px 40px / 40px 30px 20px 10px<br>斜杠/左边是四个圆角的水平半径，右边是四个圆角的垂直半径；但是通常我们很少写右边的参数，那就是默认右边等于左边的值<br>border-top-left-radius<br>border-top-right-radius<br>border-bottom-right-radius<br>border-bottom-left-radius<br>左上角开始，顺时针，空格分隔各个值<br><img src="/img/CSS3-Sheap/border-radius_01.png" alt="bordr-raidus" width="50%" height="50%"><br>绿色指的是水平半径，紫色指的是垂直半径。<br>示例：<a href="http://codepen.io/cherishing/pen/NbNmYr" target="_blank" rel="external">http://codepen.io/cherishing/pen/NbNmYr</a><br>椭圆：<br><img src="/img/CSS3-Sheap/border-radius_02.png" alt="bordr-raidus"><br>如上图，通过“/”单独指定水平半径和垂直半径<br>自适应椭圆：<br>border-radius:50% &lt;=&gt; border-radius:50% / 50%;<br>示例：<a href="http://codepen.io/cherishing/pen/dOMJyj" target="_blank" rel="external">http://codepen.io/cherishing/pen/dOMJyj</a></li>
 </ul>
-<p><strong> 1)  半椭圆的绘制 </strong><br><img src="/img/border-radius_03.png" alt="bordr-raidus" width="50%" height="50%"><br>css-code如：<br>.circle{<br>  width:300px;<br>  height:200px;<br>  margin:10px auto;<br>  background:#f00;<br>  border-radius:50% /100% 100% 0 0;<br>}<br>上图的半椭圆是沿x轴劈开的，它的左右水平半径各占容器宽度的一般，所以水平半径为50%；而垂直半径只有左上角，右上角有，且垂直半径占据了容器的整个高度，所以垂直半径为100% 100% 0 0，结合起来就是上面css-code中的。<br>可能很多人和我第一次写的一样，错误的写法如：border-radius:50% 50% 0 0;<br>以为这样就可以生成半椭圆，但实际上这样是没有正确理解水平半径和垂直半径以及容器宽高的关系。<br>百分比是按容器宽高来给定的，一半就是50%，撑开了整个容器的高度就是100%。</p>
+<p><strong> 1)  半椭圆的绘制 </strong><br><img src="/img/CSS3-Sheap/border-radius_03.png" alt="bordr-raidus" width="50%" height="50%"><br>css-code如：<br>.circle{<br>  width:300px;<br>  height:200px;<br>  margin:10px auto;<br>  background:#f00;<br>  border-radius:50% /100% 100% 0 0;<br>}<br>上图的半椭圆是沿x轴劈开的，它的左右水平半径各占容器宽度的一般，所以水平半径为50%；而垂直半径只有左上角，右上角有，且垂直半径占据了容器的整个高度，所以垂直半径为100% 100% 0 0，结合起来就是上面css-code中的。<br>可能很多人和我第一次写的一样，错误的写法如：border-radius:50% 50% 0 0;<br>以为这样就可以生成半椭圆，但实际上这样是没有正确理解水平半径和垂直半径以及容器宽高的关系。<br>百分比是按容器宽高来给定的，一半就是50%，撑开了整个容器的高度就是100%。</p>
 <p><strong> 2)  四分之一椭圆 </strong><br>示例：<a href="http://codepen.io/cherishing/pen/pNypEN" target="_blank" rel="external">http://codepen.io/cherishing/pen/pNypEN</a></p>
-<h3 id="圆"><a href="#圆" class="headerlink" title="圆"></a>圆</h3><p><img src="/img/border-radius_04.png" alt="bordr-raidus" width="50%" height="50%">   <strong>宽高相等显示圆</strong>；</p>
+<h3 id="圆"><a href="#圆" class="headerlink" title="圆"></a>圆</h3><p><img src="/img/CSS3-Sheap/border-radius_04.png" alt="bordr-raidus" width="50%" height="50%">   <strong>宽高相等显示圆</strong>；</p>
 <p>指定任何大于100px的半径，仍然可以得到一个圆形。<br>原因：<br>     当任意两个相邻圆角的半径之和超越border box的尺寸时，用户代理必须按比例减小各个边框半径所使用的值，直到它们不会相互重叠。<br>                                                            —–css背景与边框<br>示例：<a href="示例：http://codepen.io/cherishing/pen/aBNVeV
 ">http://codepen.io/cherishing/pen/aBNVeV<br></a></p>
 <h2 id="平行四边形"><a href="#平行四边形" class="headerlink" title="平行四边形"></a>平行四边形</h2><p>1、利用transform:skew()<br>Skew()变换坐标系：y轴顺时针为正，x轴逆时针为正（注：它的y轴正方向是水平向右，x轴正方向是水平向下）<br>示例：<a href="http://codepen.io/cherishing/pen/XNdVaZ" target="_blank" rel="external">http://codepen.io/cherishing/pen/XNdVaZ</a></p>
 <p><font color="red">Bug: </font> </p>
 <p><div>该属性会造成里面的文字也跟着变形，有什么办法只让容器变形，内容不 变形吗？？？？</div><br>1）对里面的内容再一次应用反向的shew()变形；从而抵消容器的变形效果<br>对内容添加一个div<br>示例：<a href="http://codepen.io/cherishing/pen/ENKooR" target="_blank" rel="external">http://codepen.io/cherishing/pen/ENKooR</a></p>
 <p>2、利用伪元素<br>方法：利用伪元素及定位属性，产生一个方块，然后对伪元素设置样式，并将其放置在宿主元素下层。<br>示例：<a href="http://codepen.io/cherishing/pen/QGNaBp" target="_blank" rel="external">http://codepen.io/cherishing/pen/QGNaBp</a></p>
-<h2 id="菱形"><a href="#菱形" class="headerlink" title="菱形"></a>菱形</h2><p>利用transform:rotate(angle);<br>angle为正数,表示顺时针旋转；<br>angle为负数,表示逆时针旋转;<br><img src="/img/css3-diamond.png" alt="菱形"><br>示例：<a href="http://codepen.io/cherishing/pen/bBpPBm" target="_blank" rel="external">http://codepen.io/cherishing/pen/bBpPBm</a></p>
+<h2 id="菱形"><a href="#菱形" class="headerlink" title="菱形"></a>菱形</h2><p>利用transform:rotate(angle);<br>angle为正数,表示顺时针旋转；<br>angle为负数,表示逆时针旋转;<br><img src="/img/CSS3-Sheap/css3-diamond.png" alt="菱形"><br>示例：<a href="http://codepen.io/cherishing/pen/bBpPBm" target="_blank" rel="external">http://codepen.io/cherishing/pen/bBpPBm</a></p>
 <ul>
-<li>菱形图片<br>  1）利用前面的平行四边形相似的处理方法，img外面套一个div，对容器旋转45度角；图片-45度角<br>  正常：<img src="/img/css3-diamond2.png" alt="菱形"><br>  但是有个hack，处理非正方形图片就会原型毕露。如下图：<br>  <img src="/img/css3-diamond3.png" alt="菱形"><br>  2）clip-path剪裁路径（实验技术）<br>  实验属性；没有被主流浏览器支持（包括ie和火狐）；但在webkit浏览器中，它可以使用。<br>  在现代浏览器中需要使用 -webkit- 前缀<br>  -webkit-clip-path:polygon(50% 0, 100% 50%, 50% 100%, 0 50%);<br>  示例：<a href="http://codepen.io/cherishing/pen/MbyLgV" target="_blank" rel="external">http://codepen.io/cherishing/pen/MbyLgV</a></li>
+<li>菱形图片<br>  1）利用前面的平行四边形相似的处理方法，img外面套一个div，对容器旋转45度角；图片-45度角<br>  正常：<img src="/img/CSS3-Sheap/css3-diamond2.png" alt="菱形"><br>  但是有个hack，处理非正方形图片就会原型毕露。如下图：<br>  <img src="/img/CSS3-Sheap/css3-diamond3.png" alt="菱形"><br>  2）clip-path剪裁路径（实验技术）<br>  实验属性；没有被主流浏览器支持（包括ie和火狐）；但在webkit浏览器中，它可以使用。<br>  在现代浏览器中需要使用 -webkit- 前缀<br>  -webkit-clip-path:polygon(50% 0, 100% 50%, 50% 100%, 0 50%);<br>  示例：<a href="http://codepen.io/cherishing/pen/MbyLgV" target="_blank" rel="external">http://codepen.io/cherishing/pen/MbyLgV</a></li>
 </ul>
-<h2 id="切角效果"><a href="#切角效果" class="headerlink" title="切角效果"></a>切角效果</h2><p>1、linear-gradient(angle, color….color)<br>第一个参数指明渐变方向，<br>0deg表示从下往上，90deg表示渐变从左往右，180deg表示渐变从上往下，270deg表示渐变从右往左，顺时针 ；或者用to+关键字表示；to top等于0deg;<br>如：div { background: linear-gradient(10deg, red, blue) }<br><img src="/img/qiejiao_01.png" alt="菱形"><br>渐变本本质上就是background-image,所以我们可以像对待background-image一样使用background-size调整大小;<br>示例：<a href="http://codepen.io/cherishing/pen/zoqXqE" target="_blank" rel="external">http://codepen.io/cherishing/pen/zoqXqE</a><br>2、切角效果<br>一个角：<br>示例：<a href="http://codepen.io/cherishing/pen/gLrzEP" target="_blank" rel="external">http://codepen.io/cherishing/pen/gLrzEP</a></p>
+<h2 id="切角效果"><a href="#切角效果" class="headerlink" title="切角效果"></a>切角效果</h2><p>1、linear-gradient(angle, color….color)<br>第一个参数指明渐变方向，<br>0deg表示从下往上，90deg表示渐变从左往右，180deg表示渐变从上往下，270deg表示渐变从右往左，顺时针 ；或者用to+关键字表示；to top等于0deg;<br>如：div { background: linear-gradient(10deg, red, blue) }<br><img src="/img/CSS3-Sheap/qiejiao_01.png" alt="菱形"><br>渐变本本质上就是background-image,所以我们可以像对待background-image一样使用background-size调整大小;<br>示例：<a href="http://codepen.io/cherishing/pen/zoqXqE" target="_blank" rel="external">http://codepen.io/cherishing/pen/zoqXqE</a><br>2、切角效果<br>一个角：<br>示例：<a href="http://codepen.io/cherishing/pen/gLrzEP" target="_blank" rel="external">http://codepen.io/cherishing/pen/gLrzEP</a></p>
 <p>两个角、四个角：<br>示例：<a href="http://codepen.io/cherishing/pen/WowJBj" target="_blank" rel="external">http://codepen.io/cherishing/pen/WowJBj</a></p>
 <p>或者用clip-path:polygon()</p>
 <h2 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h2><p>1、基于transform的解决方法：<br>1）画一个左右两部分颜色不同的圆<br>2）把左（右）部分用伪元素遮盖住<br>3）通过旋转伪元素实现<br>区分小于50%和大于50%；<br>下面示例只实现的小于50%：<br>示例：<a href="http://codepen.io/cherishing/pen/yVJKzd" target="_blank" rel="external">http://codepen.io/cherishing/pen/yVJKzd</a></p>
@@ -108,12 +108,12 @@
     <link href="http://yoursite.com/2016/11/08/autumnInBeijing/"/>
     <id>http://yoursite.com/2016/11/08/autumnInBeijing/</id>
     <published>2016-11-08T05:44:55.000Z</published>
-    <updated>2016-11-09T01:51:30.859Z</updated>
+    <updated>2016-12-15T05:36:22.924Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一叶知秋"><a href="#一叶知秋" class="headerlink" title="一叶知秋"></a>一叶知秋</h3><p><strong>袅袅兮秋风，洞庭波兮木叶下。</strong></p>
 <p>见过南方的秋，可却独爱北京的秋。北京，这个神奇魔幻的城市，一群热血沸腾的人在这里燃烧着，一座让你暂时忘记雾霾的城市。<br>北秋美，叶子更美。清晰的脉络纹理。</p>
 <p><strong><em>我愿你是个谎，生于南墙；我想你就站在，站在七月</em></strong><br><a id="more"></a></p>
-<div class="autumnInBeijing" style="overflow:hidden;"><br>    <img src="/img/autumnInBeiJing_16.jpg" alt="北秋" style="width:48%" class="autumnInBeijing_scale">&nbsp;&nbsp;&nbsp;<img src="/img/autumnInBeiJing_01.jpg" alt="北秋" style="width:48%" class="autumnInBeijing_rotate"><br><br>    <img src="/img/autumnInBeiJing_11.jpg" alt="北秋" style="width:48%" class="autumnInBeijing_rotate">&nbsp;&nbsp;&nbsp;<img src="/img/autumnInBeiJing_17.jpg" alt="北秋" style="width:48%" class="autumnInBeijing_scale"><br><br>    <img src="/img/autumnInBeiJing_07.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/autumnInBeiJing_01.jpg" alt="北秋" style="width:48%"><br><br>    <img src="/img/autumnInBeiJing_09.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/autumnInBeiJing_08.jpg" alt="北秋" style="width:48%"><br><br>    <img src="/img/autumnInBeiJing_13.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/autumnInBeiJing_02.jpg" alt="北秋" style="width:48%"><br><br>    <img src="/img/autumnInBeiJing_05.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/autumnInBeiJing_12.jpg" alt="北秋" style="width:48%"><br><br>    <img src="/img/autumnInBeiJing_10.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/autumnInBeiJing_14.jpg" alt="北秋" style="width:48%"><br><br>   <img src="/img/autumnInBeiJing_04.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/autumnInBeiJing_15.jpg" alt="北秋" style="width:48%"><br><br><span style="font-size:18px; color:#16982B; float:right;" class="autumnInBeijing-smile">smile &gt;.&lt; </span><br></div>
+<div class="autumnInBeijing" style="overflow:hidden;"><br>    <img src="/img/beiJingAutum/autumnInBeiJing_16.jpg" alt="北秋" style="width:48%" class="autumnInBeijing_scale">&nbsp;&nbsp;&nbsp;<img src="/img/beiJingAutum/autumnInBeiJing_01.jpg" alt="北秋" style="width:48%" class="autumnInBeijing_rotate"><br><br>    <img src="/img/beiJingAutum/autumnInBeiJing_11.jpg" alt="北秋" style="width:48%" class="autumnInBeijing_rotate">&nbsp;&nbsp;&nbsp;<img src="/img/beiJingAutum/autumnInBeiJing_17.jpg" alt="北秋" style="width:48%" class="autumnInBeijing_scale"><br><br>    <img src="/img/beiJingAutum/autumnInBeiJing_07.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/beiJingAutum/autumnInBeiJing_01.jpg" alt="北秋" style="width:48%"><br><br>    <img src="/img/beiJingAutum/autumnInBeiJing_09.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/beiJingAutum/autumnInBeiJing_08.jpg" alt="北秋" style="width:48%"><br><br>    <img src="/img/beiJingAutum/autumnInBeiJing_13.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/beiJingAutum/autumnInBeiJing_02.jpg" alt="北秋" style="width:48%"><br><br>    <img src="/img/beiJingAutum/autumnInBeiJing_05.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/beiJingAutum/autumnInBeiJing_12.jpg" alt="北秋" style="width:48%"><br><br>    <img src="/img/beiJingAutum/autumnInBeiJing_10.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/beiJingAutum/autumnInBeiJing_14.jpg" alt="北秋" style="width:48%"><br><br>   <img src="/img/beiJingAutum/autumnInBeiJing_04.jpg" alt="北秋" style="width:48%">&nbsp;&nbsp;&nbsp;<img src="/img/beiJingAutum/autumnInBeiJing_15.jpg" alt="北秋" style="width:48%"><br><br><span style="font-size:18px; color:#16982B; float:right;" class="autumnInBeijing-smile">smile &gt;.&lt; </span><br></div>
 
 ]]></content>
     
@@ -174,48 +174,48 @@
     <link href="http://yoursite.com/2016/09/19/qingdaoTravel/"/>
     <id>http://yoursite.com/2016/09/19/qingdaoTravel/</id>
     <published>2016-09-19T10:12:08.000Z</published>
-    <updated>2016-11-08T05:51:52.232Z</updated>
+    <updated>2016-12-15T05:30:55.994Z</updated>
     
     <content type="html"><![CDATA[<h2 id="她说。她想成为一棵树"><a href="#她说。她想成为一棵树" class="headerlink" title="她说。她想成为一棵树"></a>她说。她想成为一棵树</h2><p><em>如果有来生</em><br><em>要做一棵树</em><br><em>站成永恒</em><br><em>没有悲欢的姿势</em><br><em>一半在尘土里安详</em><br><em>一半在风里飞扬</em><br><em>一半洒落阴凉</em><br><em>一半沐浴阳光</em><br><em>非常沉默非常骄傲</em><br><em>从不依靠从不寻找</em><br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;– <em>三毛</em><br><a id="more"></a></p>
 <h4 id="青岛初印象"><a href="#青岛初印象" class="headerlink" title="青岛初印象"></a>青岛初印象</h4><ul>
-<li><strong>青岛火车站</strong>，没有奢侈繁华的装饰，墙面给人简单质朴的感觉。<br><img src="/img/train.jpg" alt="火车站" style="width:600px; height:400px;"><br>&ensp;</li>
-<li>海鲜，海鲜，海鲜，…..<br>来青岛不吃海鲜不就白来了吗，不喝啤酒不就白来了吗，这味道，完美。海鲜大餐，开吃，开吃，开吃。<br><img src="/img/foods_01.jpg" alt="海鲜" style="width:200px; height:240px;">&ensp;<img src="/img/foods_02.jpg" alt="海鲜" style="width:200px; height:240px;">&ensp;<img src="/img/foods_03.jpg" alt="海鲜" style="width:200px; height:240px;"></li>
-<li><p><strong>青岛的路</strong><br>中山路，湖南路，广西路…<br>青岛的建筑很美丽。<br><img src="/img/road_02.jpg" alt="road" style="width:300px; height:300px;">&ensp;<img src="/img/road_03.jpg" alt="road" style="width:300px; height:300px;">&ensp;</p>
+<li><strong>青岛火车站</strong>，没有奢侈繁华的装饰，墙面给人简单质朴的感觉。<br><img src="/img/qingDao/train.jpg" alt="火车站" style="width:600px; height:400px;"><br>&ensp;</li>
+<li>海鲜，海鲜，海鲜，…..<br>来青岛不吃海鲜不就白来了吗，不喝啤酒不就白来了吗，这味道，完美。海鲜大餐，开吃，开吃，开吃。<br><img src="/img/qingDao/foods_01.jpg" alt="海鲜" style="width:200px; height:240px;">&ensp;<img src="/img/qingDao/foods_02.jpg" alt="海鲜" style="width:200px; height:240px;">&ensp;<img src="/img/qingDao/foods_03.jpg" alt="海鲜" style="width:200px; height:240px;"></li>
+<li><p><strong>青岛的路</strong><br>中山路，湖南路，广西路…<br>青岛的建筑很美丽。<br><img src="/img/qingDao/road_02.jpg" alt="road" style="width:300px; height:300px;">&ensp;<img src="/img/qingDao/road_03.jpg" alt="road" style="width:300px; height:300px;">&ensp;</p>
 </li>
 <li><p><strong>天主教堂</strong></p>
 </li>
 </ul>
-<p><img src="/img/jiaotang.jpg" alt="教堂" style="width:300px; height:300px;">&ensp;<img src="/img/jiaotang02.jpg" alt="教堂" style="width:300px; height:300px;">&ensp;&ensp;</p>
-<p><img src="/img/jiaotang03.jpg" alt="教堂" style="width:300px; height:300px;">&ensp;<img src="/img/jiaotang04.jpg" alt="教堂" style="width:300px; height:300px;">&ensp;</p>
+<p><img src="/img/qingDao/jiaotang.jpg" alt="教堂" style="width:300px; height:300px;">&ensp;<img src="/img/qingDao/jiaotang02.jpg" alt="教堂" style="width:300px; height:300px;">&ensp;&ensp;</p>
+<p><img src="/img/qingDao/jiaotang03.jpg" alt="教堂" style="width:300px; height:300px;">&ensp;<img src="/img/qingDao/jiaotang04.jpg" alt="教堂" style="width:300px; height:300px;">&ensp;</p>
 <ul>
 <li><strong>良友书坊</strong></li>
 </ul>
 <p>喜欢方所，心之所属。一直以来都梦想有一家自己的书店。<br>良友书坊，参观了一下，里面的画还是很nice滴。</p>
-<p><img src="/img/liangyou_02.jpg" alt="良友书坊" style="width:300px; height:300px;">&ensp;<img src="/img/liangyou.jpg" alt="良友书坊" style="width:300px; height:300px;">&ensp;</p>
-<p><img src="/img/hua.jpg" alt="良友书坊" style="width:610px; height:500px;">&ensp;</p>
+<p><img src="/img/qingDao/liangyou_02.jpg" alt="良友书坊" style="width:300px; height:300px;">&ensp;<img src="/img/qingDao/liangyou.jpg" alt="良友书坊" style="width:300px; height:300px;">&ensp;</p>
+<p><img src="/img/qingDao/hua.jpg" alt="良友书坊" style="width:610px; height:500px;">&ensp;</p>
 <ul>
-<li><p><strong>邮电博物馆</strong><br><img src="/img/youdain.jpg" alt="邮电博物馆" style="width:610px; height:600px;">&ensp;</p>
+<li><p><strong>邮电博物馆</strong><br><img src="/img/qingDao/youdain.jpg" alt="邮电博物馆" style="width:610px; height:600px;">&ensp;</p>
 </li>
 <li><p><strong>电视塔</strong></p>
 </li>
 </ul>
-<p><img src="/img/all_01.jpg" alt="电视塔" style="width:600px; height:500px;">&ensp;&ensp;</p>
-<p><img src="/img/all_02.jpg" alt="电视塔" style="width:600px; height:500px;">&ensp;</p>
-<p><img src="/img/tower.jpg" alt="电视塔" style="width:610px; height:700px;">&ensp;</p>
+<p><img src="/img/qingDao/all_01.jpg" alt="电视塔" style="width:600px; height:500px;">&ensp;&ensp;</p>
+<p><img src="/img/qingDao/all_02.jpg" alt="电视塔" style="width:600px; height:500px;">&ensp;</p>
+<p><img src="/img/qingDao/tower.jpg" alt="电视塔" style="width:610px; height:700px;">&ensp;</p>
 <ul>
-<li><p><strong>五四广场</strong><br><img src="/img/54.jpg" alt="五四广场" style="width:610px; height:700px;">&ensp;</p>
+<li><p><strong>五四广场</strong><br><img src="/img/qingDao/54.jpg" alt="五四广场" style="width:610px; height:700px;">&ensp;</p>
 </li>
-<li><p><strong>夜景</strong><br><img src="/img/night.jpg" alt="夜景" style="width:610px; height:700px;">&ensp;</p>
+<li><p><strong>夜景</strong><br><img src="/img/qingDao/night.jpg" alt="夜景" style="width:610px; height:700px;">&ensp;</p>
 </li>
 </ul>
 <h4 id="第一次看海"><a href="#第一次看海" class="headerlink" title="第一次看海"></a>第一次看海</h4><p>谢谢你带我去看海，海水没有蓝蓝的，天空没有蓝蓝的，可心情是蓝蓝的。<br>青岛，<br>老想着在海边买一栋小房子，卖着书，鲜花和杂货，心目中的美好大抵如此。</p>
-<p><img src="/img/sea14.jpg" alt="海" style="width:300px; height:300px;">&ensp;<img src="/img/sea13.jpg" alt="海" style="width:300px; height:300px;"></p>
+<p><img src="/img/qingDao/sea14.jpg" alt="海" style="width:300px; height:300px;">&ensp;<img src="/img/qingDao/sea13.jpg" alt="海" style="width:300px; height:300px;"></p>
 <p>记忆中的海很蓝，蓝的不像话。可现实：</p>
-<p><img src="/img/sea12.jpg" alt="海" style="width:600px; height:400px;"></p>
+<p><img src="/img/qingDao/sea12.jpg" alt="海" style="width:600px; height:400px;"></p>
 <h4 id="时光-未来"><a href="#时光-未来" class="headerlink" title="时光-未来"></a>时光-未来</h4><p>那天（2016年9月17日）给未来寄了一份信。<br>时光从不会辜负每一个努力的人，时光偶尔有点残酷，但别让一小点就对未来失去美好的希望，希望你被世界温柔的对待，每一个认真的人都值得被温柔的对待。愿你别辜负自己。<br>未来在那头，希望在那头，选择在这头。</p>
-<p><img src="/img/time_01.jpg" alt="时光" style="width:300px; height:300px;">&ensp;&ensp;<img src="/img/time_02.jpg" alt="时光" style="width:300px; height:300px;"></p>
-<p><img src="/img/time_03.jpg" alt="时光" style="width:300px; height:300px;">&ensp;&ensp;<img src="/img/time_04.jpg" alt="时光" style="width:300px; height:300px;"></p>
-<h5 id="YEAH"><a href="#YEAH" class="headerlink" title="YEAH"></a>YEAH</h5><p><img src="/img/yeah.jpg" alt="海" style="width:600px; height:700px;"></p>
+<p><img src="/img/qingDao/time_01.jpg" alt="时光" style="width:300px; height:300px;">&ensp;&ensp;<img src="/img/qingDao/time_02.jpg" alt="时光" style="width:300px; height:300px;"></p>
+<p><img src="/img/qingDao/time_03.jpg" alt="时光" style="width:300px; height:300px;">&ensp;&ensp;<img src="/img/qingDao/time_04.jpg" alt="时光" style="width:300px; height:300px;"></p>
+<h5 id="YEAH"><a href="#YEAH" class="headerlink" title="YEAH"></a>YEAH</h5><p><img src="/img/qingDao/yeah.jpg" alt="海" style="width:600px; height:700px;"></p>
 ]]></content>
     
     <summary type="html">
