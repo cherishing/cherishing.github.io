@@ -29,9 +29,9 @@ ga('send', 'pageview');</script></head><body><div id="main"><header><a href="/."
 <p>效果如：<br><img src="/img/protoChain/prototype__prototype03.png" alt="属性"></p>
 <h4 id="判断属性存在原型上还是实例上"><a href="#判断属性存在原型上还是实例上" class="headerlink" title="判断属性存在原型上还是实例上"></a>判断属性存在原型上还是实例上</h4><p>hasOwnPrototype():只在给定属性存在对象实例中，才会返回true。<br>in操作符：它会在通过对象能够访问给定属性时返回true，无论该属性存在于实例中还是原型中。</p>
 <p>方法：<br><strong> function hasPrototypeProperty(object, name){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return !object.hasOwnPrototype(name) &amp;&amp; (name in object);<br>} </strong></p>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>原型对象也是普通的对象，并且也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链（prototype chain）</p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>原型对象也是普通的对象，并且也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链（prototype chain）<br>理解了下面两图的内容差不多就理解了原型链。</p>
 <p><img src="/img/protoChain/prototype_chain01.png" alt="原型链"><br><br><br><br><br><img src="/img/protoChain/prototype_chain02.png" alt="原型链"></p>
-</div></article><div class="tags"><a href="/tags/Javascript/">Javascript</a><a href="/tags/原型/">原型</a><a href="/tags/原型链/">原型链</a></div><div class="paginator"><a href="/2016/11/15/css3-shape/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div data-thread-key="http://yoursite.com/2016/11/25/prototypeChain/index.html" data-title="原型与原型链" data-url="http://yoursite.com/2016/11/25/prototypeChain/index.html" class="ds-thread"></div><script type="text/javascript">var duoshuoQuery = {short_name: "cherishing" };
+</div></article><div class="tags"><a href="/tags/Javascript/">Javascript</a><a href="/tags/原型/">原型</a><a href="/tags/原型链/">原型链</a></div><div class="paginator"><a href="/2016/12/20/timeSlicing/" class="prev"><i class="iconfont icon-left"></i><span> Prev</span></a><a href="/2016/11/15/css3-shape/" class="next"><span>Next</span><i class="iconfont icon-right"></i></a></div><section id="comments"><div data-thread-key="http://yoursite.com/2016/11/25/prototypeChain/index.html" data-title="原型与原型链" data-url="http://yoursite.com/2016/11/25/prototypeChain/index.html" class="ds-thread"></div><script type="text/javascript">var duoshuoQuery = {short_name: "cherishing" };
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

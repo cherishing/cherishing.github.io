@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-15T06:12:50.935Z</updated>
+  <updated>2016-11-15T10:45:48.030Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,71 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>初遇 Hexo</title>
+    <link href="http://yoursite.com/2016/12/20/meetHexo/"/>
+    <id>http://yoursite.com/2016/12/20/meetHexo/</id>
+    <published>2016-12-20T13:30:57.642Z</published>
+    <updated>2016-11-15T10:45:48.030Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
+<li>node</li>
+<li>git</li>
+<li>GitHub（注意<a href="http://blog.csdn.net/dengjianqiang2011/article/details/9260435" target="_blank" rel="external">ssh</a>）</li>
+<li>评论框（使用多说评论框）</li>
+<li>主题（<a href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="external">even</a>）<h3 id="学习教程"><a href="#学习教程" class="headerlink" title="学习教程"></a>学习教程</h3>-<a href="http://www.jianshu.com/p/808554f12929" target="_blank" rel="external">快速搭建博客</a><br>初遇博客，用来记录点滴,见证自己的成长平台。<br>日行一步。<a id="more"></a>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;node&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;li&gt;GitHub（注意&lt;a href=&quot;http://blog.csdn.net/dengjianqiang2011/article/details/9260435&quot;&gt;ssh&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;评论框（使用多说评论框）&lt;/li&gt;
+&lt;li&gt;主题（&lt;a href=&quot;https://github.com/ahonn/hexo-theme-even&quot;&gt;even&lt;/a&gt;）&lt;h3 id=&quot;学习教程&quot;&gt;&lt;a href=&quot;#学习教程&quot; class=&quot;headerlink&quot; title=&quot;学习教程&quot;&gt;&lt;/a&gt;学习教程&lt;/h3&gt;-&lt;a href=&quot;http://www.jianshu.com/p/808554f12929&quot;&gt;快速搭建博客&lt;/a&gt;&lt;br&gt;初遇博客，用来记录点滴,见证自己的成长平台。&lt;br&gt;日行一步。
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>时间分片问题</title>
+    <link href="http://yoursite.com/2016/12/20/timeSlicing/"/>
+    <id>http://yoursite.com/2016/12/20/timeSlicing/</id>
+    <published>2016-12-20T12:16:35.000Z</published>
+    <updated>2016-12-20T13:35:09.986Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在工作中遇到一个新的需求，要求在前后两次接口请求中，第一次返回的数据值(A)和下次返回的数据值(B)，通过每次增加一定的值，从A加到B，从而达到数字在目标值之间快速翻动的效果，而没有出现数字跳跃。<br>效果图如下：<br><img src="/img/timeSlicing/gun01.gif" alt="数字滚动" style="margin:10px auto;"><br><a id="more"></a></p>
+<h2 id="相关知识扩充-requestAnimationFrame"><a href="#相关知识扩充-requestAnimationFrame" class="headerlink" title="相关知识扩充-requestAnimationFrame"></a>相关知识扩充-requestAnimationFrame</h2><p>requestAnimationFrame是浏览器用于定时循环操作的一个接口，用的比较少，所以第一次听到的时候很惊讶，主要用途是按帧对网页进行重绘，优点：不会丢失帧，充分利用浏览器的刷新机制，(思考：浏览器刷新机制和显示器刷新机制的区别？？？)，节约资源。<br>用法参照：MDN(<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="external">requestAnimationFrame用法</a>)</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>如图：<br><img src="/img/timeSlicing/thinking.jpg" alt="时间分片思路图"></p>
+<p>上图左框中表示的是每隔5s定时调用后台接口，返回记录值；右框中表示每次滚动值的计算。<br>下面详细描述下右框中的内容：前一次调用接口返回的值为48(假设叫prev)，直到下一<br>次调用返回值88(假设叫cur)，通过这个计算出速度speed = (88-48)/1000(1s为1000ms);<br>curVal = 48+speed*(curTime-startTime)(表示当前滚动的值)，curTime表示获取curVal<br>的时候时间，而startTime表示开始执行requestAnimationFrame时候的时间。</p>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><p><img src="/img/timeSlicing/pseudo.jpg" alt="伪代码"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在工作中遇到一个新的需求，要求在前后两次接口请求中，第一次返回的数据值(A)和下次返回的数据值(B)，通过每次增加一定的值，从A加到B，从而达到数字在目标值之间快速翻动的效果，而没有出现数字跳跃。&lt;br&gt;效果图如下：&lt;br&gt;&lt;img src=&quot;/img/timeSlicing/gun01.gif&quot; alt=&quot;数字滚动&quot; style=&quot;margin:10px auto;&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="时序" scheme="http://yoursite.com/tags/%E6%97%B6%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>原型与原型链</title>
     <link href="http://yoursite.com/2016/11/25/prototypeChain/"/>
     <id>http://yoursite.com/2016/11/25/prototypeChain/</id>
     <published>2016-11-25T09:32:48.000Z</published>
-    <updated>2016-12-15T06:12:50.935Z</updated>
+    <updated>2016-12-16T06:48:27.396Z</updated>
     
     <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>本文主要讲解 prototype, <strong>proto</strong>, constructor，instanceof各自的含义，构造函数，原型对象，实例之间的关系;描述出查找对象的属性的过程，原型链是如何构成的等等。<br><a id="more"></a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每周一次的前端分享，想了几天实在是不知道分享啥，正好最近在看面向对象，那就讲讲原型和原型链吧，在我不理解它们的时候，每次面试只要听到这几个词就吓得半死，简直是前端的恶魔。学东西就是这样吧，越是不理解的越害怕以为很难，其实只要认真去学去理解，没有自己想象的那么难。还是那句话，不懂的总有一天会懂，共勉。</p>
@@ -40,7 +100,7 @@
 <p>效果如：<br><img src="/img/protoChain/prototype__prototype03.png" alt="属性"></p>
 <h4 id="判断属性存在原型上还是实例上"><a href="#判断属性存在原型上还是实例上" class="headerlink" title="判断属性存在原型上还是实例上"></a>判断属性存在原型上还是实例上</h4><p>hasOwnPrototype():只在给定属性存在对象实例中，才会返回true。<br>in操作符：它会在通过对象能够访问给定属性时返回true，无论该属性存在于实例中还是原型中。</p>
 <p>方法：<br><strong> function hasPrototypeProperty(object, name){<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return !object.hasOwnPrototype(name) &amp;&amp; (name in object);<br>} </strong></p>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>原型对象也是普通的对象，并且也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链（prototype chain）</p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>原型对象也是普通的对象，并且也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链（prototype chain）<br>理解了下面两图的内容差不多就理解了原型链。</p>
 <p><img src="/img/protoChain/prototype_chain01.png" alt="原型链"><br><br><br><br><br><img src="/img/protoChain/prototype_chain02.png" alt="原型链"></p>
 ]]></content>
     
@@ -429,39 +489,6 @@
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="Date对象" scheme="http://yoursite.com/tags/Date%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初遇 Hexo</title>
-    <link href="http://yoursite.com/2016/09/07/meetHexo/"/>
-    <id>http://yoursite.com/2016/09/07/meetHexo/</id>
-    <published>2016-09-07T06:43:22.893Z</published>
-    <updated>2016-11-15T10:45:48.030Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
-<li>node</li>
-<li>git</li>
-<li>GitHub（注意<a href="http://blog.csdn.net/dengjianqiang2011/article/details/9260435" target="_blank" rel="external">ssh</a>）</li>
-<li>评论框（使用多说评论框）</li>
-<li>主题（<a href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="external">even</a>）<h3 id="学习教程"><a href="#学习教程" class="headerlink" title="学习教程"></a>学习教程</h3>-<a href="http://www.jianshu.com/p/808554f12929" target="_blank" rel="external">快速搭建博客</a><br>初遇博客，用来记录点滴,见证自己的成长平台。<br>日行一步。<a id="more"></a>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;node&lt;/li&gt;
-&lt;li&gt;git&lt;/li&gt;
-&lt;li&gt;GitHub（注意&lt;a href=&quot;http://blog.csdn.net/dengjianqiang2011/article/details/9260435&quot;&gt;ssh&lt;/a&gt;）&lt;/li&gt;
-&lt;li&gt;评论框（使用多说评论框）&lt;/li&gt;
-&lt;li&gt;主题（&lt;a href=&quot;https://github.com/ahonn/hexo-theme-even&quot;&gt;even&lt;/a&gt;）&lt;h3 id=&quot;学习教程&quot;&gt;&lt;a href=&quot;#学习教程&quot; class=&quot;headerlink&quot; title=&quot;学习教程&quot;&gt;&lt;/a&gt;学习教程&lt;/h3&gt;-&lt;a href=&quot;http://www.jianshu.com/p/808554f12929&quot;&gt;快速搭建博客&lt;/a&gt;&lt;br&gt;初遇博客，用来记录点滴,见证自己的成长平台。&lt;br&gt;日行一步。
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
