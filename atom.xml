@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-20T13:35:09.986Z</updated>
+  <updated>2016-12-21T03:37:08.143Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>再见2016，你好2017</title>
+    <link href="http://yoursite.com/2016/12/21/2016yearEnd/"/>
+    <id>http://yoursite.com/2016/12/21/2016yearEnd/</id>
+    <published>2016-12-21T02:06:55.000Z</published>
+    <updated>2016-12-21T03:37:08.143Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/img/2016yearEnd/2.png" alt="再见2016，你好2017"></p>
+<a id="more"></a>
+<h2 id="再见2016"><a href="#再见2016" class="headerlink" title="再见2016"></a>再见2016</h2><h4 id="做了啥？"><a href="#做了啥？" class="headerlink" title="做了啥？"></a>做了啥？</h4><p>&nbsp;&nbsp;不停的在思考自己这一年做了些什么，用一个句话来形容今年：有点乱，是成长的一年。<br>记忆中2016年的上半年都在毕业中度过了，下半年入职以来还是做了一些令自己满意的事。比如：<br>&nbsp;&nbsp;&nbsp;&nbsp;1、把红宝书上的基础部分都再次学习了一遍，收获多多。<br>&nbsp;&nbsp;&nbsp;&nbsp;2、给自己搭了个小窝，我的blog诞生了。<br>&nbsp;&nbsp;&nbsp;&nbsp;3、养成了做笔记的习惯<br>&nbsp;&nbsp;&nbsp;&nbsp;4、写工作总结的重要性<br>&nbsp;&nbsp;&nbsp;&nbsp;5、慢慢的在找到适合自己的方式。</p>
+<h4 id="成长了？"><a href="#成长了？" class="headerlink" title="成长了？"></a>成长了？</h4><p>&nbsp;&nbsp;成长了吗？成长了一点点。我就像蜗牛一样，慢慢的往前爬，每一步都走的很踏实。<br>看着自己的有道笔记， 里面各种分类，有javascript，css3, http协议，svg, d3.js等等。满满的都是看得见的成就感，起码知道自己一直在前进中。感谢我们老大的指引，让我学到很多，也更好的认识了自己，谢谢。<br>&nbsp;&nbsp;故不积跬步，无以至千里。习惯，写代码习惯的重要性；思路，学会写伪代码；想，把问题思考的更全面；沟通表达，更好的交流传递。<br>&nbsp;&nbsp; 热爱，I like it.</p>
+<h4 id="不足之处"><a href="#不足之处" class="headerlink" title="不足之处"></a>不足之处</h4><p>菜鸟的我需要学习的东西太多了，一个不善于交际的人，往往表达能力不强，这是我需要提高的。管理好自己的时间作息，好的身体才有好的精神，上班的状态才能最佳。锻炼身体，早起早睡。</p>
+<h2 id="你好2017"><a href="#你好2017" class="headerlink" title="你好2017"></a>你好2017</h2><h4 id="定个小目标"><a href="#定个小目标" class="headerlink" title="定个小目标"></a>定个小目标</h4><p>先瘦5斤吧，我的天。没听错吧！！！<br><img src="/img/2016yearEnd/omg.gif" alt="我的天"><br>哈哈，说正事了，每月整理好自己的学习内容，上传到github上去，每月画好思维导图，过上有计划的生活吧。跟随xxz-plan。列出自己书籍清单中，每月计划阅读的书籍。虽然没能力环游世界，那就先让大脑环游世界吧。生活唯有工作学习和读书最美好。都是我爱的事。昨天看到一句话，如果你有想要完成的事或者爱的人，不仅要努力还要拼命。关于热爱，不能有丝毫的怠慢。想想就美好。<br>&nbsp;&nbsp;看看我家欧巴，心情就美好，滋滋滋。<img src="/img/2016yearEnd/gd.gif" alt="gd"></p>
+<h4 id="做一个阳光的小王子"><a href="#做一个阳光的小王子" class="headerlink" title="做一个阳光的小王子"></a>做一个阳光的小王子</h4><p>爱己及人，呼吸这北京的雾霾也挡不住小王子的热情。你就像那冬天的一把火，….，<br>在代码路上越来越棒，……<br>最后24岁,你好，生日快乐，小王子。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/img/2016yearEnd/2.png&quot; alt=&quot;再见2016，你好2017&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="年终总结" scheme="http://yoursite.com/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>时间分片问题</title>
@@ -164,7 +193,7 @@
     <link href="http://yoursite.com/2016/11/07/bowerHistory/"/>
     <id>http://yoursite.com/2016/11/07/bowerHistory/</id>
     <published>2016-11-07T11:21:19.000Z</published>
-    <updated>2016-11-07T12:33:24.534Z</updated>
+    <updated>2016-12-21T03:14:32.622Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Ajax使得页面实现了无刷新更新内容，但是带来了一个问题，页面发生改变但是不能前进后退。因为ajax请求页面的内容是改变了，但是浏览器的url保持原来的，进而无法前进后退。</p>
 <h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><p>浏览器的window对象的history对象提供了访问和操纵历史记录的能力。作用于SPA。</p>
@@ -178,7 +207,7 @@
 <p>pushState永远不会触发hashchange事件，即使新地址只变更了hash.<br>pushState将当前url和history.state加入到history中，并用新的state和url替换当前，不会造成页面刷新，它带来的地址栏的改变不会出发hash跳转效果，只是将这个地址添加到历史记录中。</p>
 <p>6）修改历史记录条目<br>history.replaceState(state, title, url)：用新的state和URL替换当前。不会造成页面刷新。<br>replaceState()：修改浏览器当前历史记录条目。<br>不同于pushState,replaceState()会修改当前历史记录条目而非创建新的条目。</p>
 <p>7）popstate事件<br>每当激活的历史纪录发生变化时，都会触发popstate事件。如果被激活的历史纪录条目是由pushState所创建，或是被replaceState方法影响到，popstate事件的状态属性将包含历史纪录的状态对象的一个拷贝。<br>前进/后退触发popstate事件。</p>
-<p>8）代码阅读<br>代码：<br>history.pushState(“”,””,”?name=1”);<br>history.pushState(“”,””,”?name=2”);<br>history.pushState(“”,””,”?name=3”);<br>history.pushState(“”,””,”?name=4”); //代码执行到此处历史记录栈的情况如图history_1<br><img src="/img/history_01.jpg" alt="历史记录栈"><br>history.replaceState(“”,””,”?name=5”);<br><img src="/img/history_02.jpg" alt="历史记录栈"><br>history.back();<br><img src="/img/history_03.jpg" alt="历史记录栈"><br>history.go(1);<br>history.go(-2);<br><img src="/img/history_04.jpg" alt="历史记录栈"><br>history.pushState(“”,””,”?name=6”);<br><img src="/img/history_05.jpg" alt="历史记录栈"><br>history.replaceState(“”,””,”?name=7”);<br><img src="/img/history_06.jpg" alt="历史记录栈"></p>
+<p>8）代码阅读<br>代码：<br>history.pushState(“”,””,”?name=1”);<br>history.pushState(“”,””,”?name=2”);<br>history.pushState(“”,””,”?name=3”);<br>history.pushState(“”,””,”?name=4”); //代码执行到此处历史记录栈的情况如图history_1<br><img src="/img/history/history_01.jpg" alt="历史记录栈"><br>history.replaceState(“”,””,”?name=5”);<br><img src="/img/history/history_02.jpg" alt="历史记录栈"><br>history.back();<br><img src="/img/history/history_03.jpg" alt="历史记录栈"><br>history.go(1);<br>history.go(-2);<br><img src="/img/history/history_04.jpg" alt="历史记录栈"><br>history.pushState(“”,””,”?name=6”);<br><img src="/img/history/history_05.jpg" alt="历史记录栈"><br>history.replaceState(“”,””,”?name=7”);<br><img src="/img/history/history_06.jpg" alt="历史记录栈"></p>
 <h5 id="资料参考链接"><a href="#资料参考链接" class="headerlink" title="资料参考链接"></a><a href="https://developer.mozilla.org/zh-CN/docs/DOM/Manipulating_the_browser_history" target="_blank" rel="external">资料参考链接</a></h5>]]></content>
     
     <summary type="html">
