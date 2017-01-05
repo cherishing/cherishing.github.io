@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-04T11:52:56.164Z</updated>
+  <updated>2017-01-05T01:44:19.190Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>0度</title>
+    <link href="http://yoursite.com/2017/01/05/zero/"/>
+    <id>http://yoursite.com/2017/01/05/zero/</id>
+    <published>2017-01-05T01:36:34.000Z</published>
+    <updated>2017-01-05T01:44:19.190Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/img/zero/1.jpg" alt="0度"></p>
+<a id="more"></a>
+<p><b> 北京的冬天只有0度。<b></b></b></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/img/zero/1.jpg&quot; alt=&quot;0度&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>骑行魔都</title>
     <link href="http://yoursite.com/2017/01/04/the-trip-to-shanghai/"/>
     <id>http://yoursite.com/2017/01/04/the-trip-to-shanghai/</id>
     <published>2017-01-04T09:04:47.000Z</published>
-    <updated>2017-01-04T11:52:56.164Z</updated>
+    <updated>2017-01-04T12:05:27.367Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/img/shanghai_trip/else/1.jpg" alt="魔都" width="98%" height="98%"></p>
 <a id="more"></a>
