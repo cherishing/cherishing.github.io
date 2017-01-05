@@ -15,6 +15,40 @@
 .autumnInBeijing .autumnInBeijing_scale:hover {
   transform: scale(0.8);
   transition: transform 2s ease-in-out; }
+.wq_img_scale{
+ &:hover{transform:scale(0.8); transition:transform 2s ease-in-out;} 
+}
+.wq_img_scale_sm{
+  transform:scale(.8);
+   &:hover{transform:scale(1); transition:transform 2s ease-in-out;}
+}
+.wq_img_marginTop{
+  margin-top:10px;
+}
+.wq_img_max{
+  max-width:600px;
+  max-height:400px;
+}
+.wq_img_max2{
+  max-width:800px;
+  max-height:500px;
+}
+.wq_img_max3{
+  max-width:47% !important;
+  max-height:47%;
+}
+.wq_img_max_per1{
+  height:70% !important;
+}
+.wq_block{
+  display:block;
+}
+.wq_marginauto{
+  margin:0 auto;
+}
+.wq_text{
+  text-align:center;
+}
 
 @font-face {
   font-family: 'Chancery';
