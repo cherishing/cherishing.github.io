@@ -53,6 +53,17 @@
 .wq_text {
   text-align: center; }
 
+.logicalOperator {
+  width: 100%;
+  marin: 20px 0; }
+  .logicalOperator img {
+    float: left;
+    width: 32%;
+    margin: 10px 6px 10px 0; }
+
+.logical_text {
+  text-indent: 10px; }
+
 @font-face {
   font-family: 'Chancery';
   src: url("../fonts/chancery/apple-chancery-webfont.eot");
