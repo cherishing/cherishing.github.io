@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-02T10:53:18.690Z</updated>
+  <updated>2017-03-03T01:46:51.769Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>逻辑运算符（&amp;&amp; 和 ||）</title>
+    <title>逻辑运算符</title>
     <link href="http://yoursite.com/2017/03/02/logicalOperator/"/>
     <id>http://yoursite.com/2017/03/02/logicalOperator/</id>
     <published>2017-03-02T03:53:17.000Z</published>
-    <updated>2017-03-02T10:53:18.690Z</updated>
+    <updated>2017-03-03T01:46:51.769Z</updated>
     
-    <content type="html"><![CDATA[<p><div class="logical_text">常常习惯性觉得某个东西应该这样，但很多时候实际情况和我们想象的有很大的出入，所以才需要实践。<br>实践出真知，学会用事实说话。JS逻辑&amp;&amp;和逻辑||很特殊，会让你大吃一惊的。<div></div></div></p>
+    <content type="html"><![CDATA[<p><div class="logical_text">常常习惯性觉得某个东西应该这样，但很多时候实际情况和我们想象的有很大的出入，所以才需要实践。<br>实践出真知，学会用事实说话。JS逻辑&amp;&amp;和逻辑||很特殊，会让你大吃一惊的。</div></p>
 <p><div class="logicalOperator"><img src="/img/logicalOperator/theme_01.jpg"><img src="/img/logicalOperator/theme_02.jpg"><img src="/img/logicalOperator/theme_03.jpg"></div><br><a id="more"></a></p>
 <h2 id="逻辑与（-amp-amp-）"><a href="#逻辑与（-amp-amp-）" class="headerlink" title="逻辑与（&amp;&amp;）"></a>逻辑与（&amp;&amp;）</h2><p>逻辑与可以应用于任何数据类型的操作数，而不仅仅是布尔值。在有一个操作不是布尔值的情况下，逻辑与操作不一定返回布尔值。哦，是不一定哦！！！<br>逻辑与遵循规则有：<br>（1）如果第一个操作数是对象，则返回第二个操作数；</p>
 <p><img src="/img/logicalOperator/clipboard_01.png"></p>
@@ -45,7 +45,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;div class=&quot;logical_text&quot;&gt;常常习惯性觉得某个东西应该这样，但很多时候实际情况和我们想象的有很大的出入，所以才需要实践。&lt;br&gt;实践出真知，学会用事实说话。JS逻辑&amp;amp;&amp;amp;和逻辑||很特殊，会让你大吃一惊的。&lt;div&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;div class=&quot;logical_text&quot;&gt;常常习惯性觉得某个东西应该这样，但很多时候实际情况和我们想象的有很大的出入，所以才需要实践。&lt;br&gt;实践出真知，学会用事实说话。JS逻辑&amp;amp;&amp;amp;和逻辑||很特殊，会让你大吃一惊的。&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;&lt;div class=&quot;logicalOperator&quot;&gt;&lt;img src=&quot;/img/logicalOperator/theme_01.jpg&quot;&gt;&lt;img src=&quot;/img/logicalOperator/theme_02.jpg&quot;&gt;&lt;img src=&quot;/img/logicalOperator/theme_03.jpg&quot;&gt;&lt;/div&gt;&lt;br&gt;
     
     </summary>
