@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-03T01:46:51.769Z</updated>
+  <updated>2017-03-30T07:56:27.443Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,9 @@
     <link href="http://yoursite.com/2017/03/02/logicalOperator/"/>
     <id>http://yoursite.com/2017/03/02/logicalOperator/</id>
     <published>2017-03-02T03:53:17.000Z</published>
-    <updated>2017-03-03T01:46:51.769Z</updated>
+    <updated>2017-03-30T07:56:27.443Z</updated>
     
-    <content type="html"><![CDATA[<p><div class="logical_text">常常习惯性觉得某个东西应该这样，但很多时候实际情况和我们想象的有很大的出入，所以才需要实践。<br>实践出真知，学会用事实说话。JS逻辑&amp;&amp;和逻辑||很特殊，会让你大吃一惊的。</div></p>
-<p><div class="logicalOperator"><img src="/img/logicalOperator/theme_01.jpg"><img src="/img/logicalOperator/theme_02.jpg"><img src="/img/logicalOperator/theme_03.jpg"></div><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><div class="logical_text">常常习惯性觉得某个东西应该这样，但很多时候实际情况和我们想象的有很大的出入，所以才需要实践。<br>实践出真知，学会用事实说话。JS逻辑&amp;&amp;和逻辑||很特殊，会让你大吃一惊的。</div><br><a id="more"></a></p>
 <h2 id="逻辑与（-amp-amp-）"><a href="#逻辑与（-amp-amp-）" class="headerlink" title="逻辑与（&amp;&amp;）"></a>逻辑与（&amp;&amp;）</h2><p>逻辑与可以应用于任何数据类型的操作数，而不仅仅是布尔值。在有一个操作不是布尔值的情况下，逻辑与操作不一定返回布尔值。哦，是不一定哦！！！<br>逻辑与遵循规则有：<br>（1）如果第一个操作数是对象，则返回第二个操作数；</p>
 <p><img src="/img/logicalOperator/clipboard_01.png"></p>
 <p>（2）如果第二个操作数是对象，只有在第一个操作数求值结果为true的情况下才会返回该对象；<br>    对于操作数的求值，是JS中的求值。</p>
@@ -45,8 +44,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;div class=&quot;logical_text&quot;&gt;常常习惯性觉得某个东西应该这样，但很多时候实际情况和我们想象的有很大的出入，所以才需要实践。&lt;br&gt;实践出真知，学会用事实说话。JS逻辑&amp;amp;&amp;amp;和逻辑||很特殊，会让你大吃一惊的。&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;logicalOperator&quot;&gt;&lt;img src=&quot;/img/logicalOperator/theme_01.jpg&quot;&gt;&lt;img src=&quot;/img/logicalOperator/theme_02.jpg&quot;&gt;&lt;img src=&quot;/img/logicalOperator/theme_03.jpg&quot;&gt;&lt;/div&gt;&lt;br&gt;
+      &lt;p&gt;&lt;div class=&quot;logical_text&quot;&gt;常常习惯性觉得某个东西应该这样，但很多时候实际情况和我们想象的有很大的出入，所以才需要实践。&lt;br&gt;实践出真知，学会用事实说话。JS逻辑&amp;amp;&amp;amp;和逻辑||很特殊，会让你大吃一惊的。&lt;/div&gt;&lt;br&gt;
     
     </summary>
     
@@ -62,7 +60,7 @@
     <link href="http://yoursite.com/2017/01/05/zero/"/>
     <id>http://yoursite.com/2017/01/05/zero/</id>
     <published>2017-01-05T01:36:34.000Z</published>
-    <updated>2017-01-05T01:46:20.075Z</updated>
+    <updated>2017-01-05T01:46:22.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/img/zero/1.jpg" alt="0度"></p>
 <a id="more"></a>
@@ -85,7 +83,7 @@
     <link href="http://yoursite.com/2017/01/04/the-trip-to-shanghai/"/>
     <id>http://yoursite.com/2017/01/04/the-trip-to-shanghai/</id>
     <published>2017-01-04T09:04:47.000Z</published>
-    <updated>2017-01-04T12:05:27.367Z</updated>
+    <updated>2017-01-04T12:05:28.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/img/shanghai_trip/else/1.jpg" alt="魔都" width="98%" height="98%"></p>
 <a id="more"></a>
@@ -123,7 +121,7 @@
     <link href="http://yoursite.com/2016/12/21/2016yearEnd/"/>
     <id>http://yoursite.com/2016/12/21/2016yearEnd/</id>
     <published>2016-12-21T02:06:55.000Z</published>
-    <updated>2016-12-23T08:12:35.166Z</updated>
+    <updated>2016-12-23T08:12:36.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/img/2016yearEnd/2.png" alt="再见2016，你好2017"></p>
 <a id="more"></a>
@@ -156,7 +154,7 @@
     <link href="http://yoursite.com/2016/12/20/timeSlicing/"/>
     <id>http://yoursite.com/2016/12/20/timeSlicing/</id>
     <published>2016-12-20T12:16:35.000Z</published>
-    <updated>2016-12-20T13:35:09.986Z</updated>
+    <updated>2016-12-20T13:35:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近在工作中遇到一个新的需求，要求在前后两次接口请求中，第一次返回的数据值(A)和下次返回的数据值(B)，通过每次增加一定的值，从A加到B，从而达到数字在目标值之间快速翻动的效果，而没有出现数字跳跃。<br>效果图如下：<br><img src="/img/timeSlicing/gun01.gif" alt="数字滚动" style="margin:10px auto;"><br><a id="more"></a></p>
 <h2 id="相关知识扩充-requestAnimationFrame"><a href="#相关知识扩充-requestAnimationFrame" class="headerlink" title="相关知识扩充-requestAnimationFrame"></a>相关知识扩充-requestAnimationFrame</h2><p>requestAnimationFrame是浏览器用于定时循环操作的一个接口，用的比较少，所以第一次听到的时候很惊讶，主要用途是按帧对网页进行重绘，优点：不会丢失帧，充分利用浏览器的刷新机制，(思考：浏览器刷新机制和显示器刷新机制的区别？？？)，节约资源。<br>用法参照：MDN(<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank" rel="external">requestAnimationFrame用法</a>)</p>
@@ -183,7 +181,7 @@
     <link href="http://yoursite.com/2016/11/25/prototypeChain/"/>
     <id>http://yoursite.com/2016/11/25/prototypeChain/</id>
     <published>2016-11-25T09:32:48.000Z</published>
-    <updated>2016-12-16T06:48:27.396Z</updated>
+    <updated>2016-12-16T06:48:28.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>本文主要讲解 prototype, <strong>proto</strong>, constructor，instanceof各自的含义，构造函数，原型对象，实例之间的关系;描述出查找对象的属性的过程，原型链是如何构成的等等。<br><a id="more"></a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每周一次的前端分享，想了几天实在是不知道分享啥，正好最近在看面向对象，那就讲讲原型和原型链吧，在我不理解它们的时候，每次面试只要听到这几个词就吓得半死，简直是前端的恶魔。学东西就是这样吧，越是不理解的越害怕以为很难，其实只要认真去学去理解，没有自己想象的那么难。还是那句话，不懂的总有一天会懂，共勉。</p>
@@ -227,7 +225,7 @@
     <link href="http://yoursite.com/2016/11/15/css3-shape/"/>
     <id>http://yoursite.com/2016/11/15/css3-shape/</id>
     <published>2016-11-15T10:31:13.000Z</published>
-    <updated>2016-12-15T05:33:25.596Z</updated>
+    <updated>2016-12-15T05:33:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近在研究css3，拜读了《css揭秘》，收益匪浅，对css有了更深刻的认识，css并没有想像的那么简单，很多效果现在都可以用css实现，就拿图形的形状来说吧，下面我将总结一下学习到的知识。css3形状主要包括：椭圆，平行四边形，菱形，切角效果，饼图等等。<br>每一天都在进步。<br><a id="more"></a></p>
 <h2 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h2><ul>
@@ -271,7 +269,7 @@
     <link href="http://yoursite.com/2016/11/08/autumnInBeijing/"/>
     <id>http://yoursite.com/2016/11/08/autumnInBeijing/</id>
     <published>2016-11-08T05:44:55.000Z</published>
-    <updated>2016-12-15T05:36:22.924Z</updated>
+    <updated>2016-12-15T05:36:24.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一叶知秋"><a href="#一叶知秋" class="headerlink" title="一叶知秋"></a>一叶知秋</h3><p><strong>袅袅兮秋风，洞庭波兮木叶下。</strong></p>
 <p>见过南方的秋，可却独爱北京的秋。北京，这个神奇魔幻的城市，一群热血沸腾的人在这里燃烧着，一座让你暂时忘记雾霾的城市。<br>北秋美，叶子更美。清晰的脉络纹理。</p>
@@ -300,7 +298,7 @@
     <link href="http://yoursite.com/2016/11/07/bowerHistory/"/>
     <id>http://yoursite.com/2016/11/07/bowerHistory/</id>
     <published>2016-11-07T11:21:19.000Z</published>
-    <updated>2016-12-21T03:14:32.622Z</updated>
+    <updated>2016-12-21T03:14:34.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Ajax使得页面实现了无刷新更新内容，但是带来了一个问题，页面发生改变但是不能前进后退。因为ajax请求页面的内容是改变了，但是浏览器的url保持原来的，进而无法前进后退。</p>
 <h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><p>浏览器的window对象的history对象提供了访问和操纵历史记录的能力。作用于SPA。</p>
@@ -337,7 +335,7 @@
     <link href="http://yoursite.com/2016/09/19/qingdaoTravel/"/>
     <id>http://yoursite.com/2016/09/19/qingdaoTravel/</id>
     <published>2016-09-19T10:12:08.000Z</published>
-    <updated>2016-12-15T05:30:55.994Z</updated>
+    <updated>2016-12-15T05:30:56.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="她说。她想成为一棵树"><a href="#她说。她想成为一棵树" class="headerlink" title="她说。她想成为一棵树"></a>她说。她想成为一棵树</h2><p><em>如果有来生</em><br><em>要做一棵树</em><br><em>站成永恒</em><br><em>没有悲欢的姿势</em><br><em>一半在尘土里安详</em><br><em>一半在风里飞扬</em><br><em>一半洒落阴凉</em><br><em>一半沐浴阳光</em><br><em>非常沉默非常骄傲</em><br><em>从不依靠从不寻找</em><br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;– <em>三毛</em><br><a id="more"></a></p>
 <h4 id="青岛初印象"><a href="#青岛初印象" class="headerlink" title="青岛初印象"></a>青岛初印象</h4><ul>
@@ -399,7 +397,7 @@
     <link href="http://yoursite.com/2016/09/13/dateObject/"/>
     <id>http://yoursite.com/2016/09/13/dateObject/</id>
     <published>2016-09-13T07:47:10.000Z</published>
-    <updated>2016-09-13T10:21:08.573Z</updated>
+    <updated>2016-09-13T10:21:10.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Javascript日期操作"><a href="#Javascript日期操作" class="headerlink" title="Javascript日期操作"></a>Javascript日期操作</h2><p>知识在于累积，感觉自己遗忘的速度有点快呀，连最基本的日期对象都记得不是特别牢固，今天阅读项目中的一段JSON字段，如下：<br>                “from”: <strong>-4045717554</strong>,<br>                “to”: <strong>-1219713505</strong><br>看到这两个日期，我一脸茫然，负的毫秒数。找到使用处的代码。看到一个有意思的函数：<br>&ensp;function cvtTime(tick){<br>&ensp;&ensp;&ensp;&ensp;var curDateTick = new Date().getTime();<br>&ensp;&ensp;&ensp;&ensp;tick = 0 - 100 * ((0 - tick) % 100000000);<br>&ensp;&ensp;&ensp;&ensp;return new Date(curDateTick + tick);<br>&ensp;}<br>咋看之初，还是无法明白这是有什么用途，执行发现原来是给出相对当前时间的偏移量，计算出某个时间。<br><a id="more"></a><br>顺带回顾了一下日期对象：<br>    var d = new Date();<br>    d.getFullYear(); //年<br>    d.getMonth()+1;  //月<br>    d.getDate();     //日<br>    d.getHours();    //时<br>    d.getMinutes();  //分<br>    d.getSeconds();  //秒<br>    d.getDay();      //星期<br>    d.getTime();     //返回1970年1月1日至今的毫秒数<br>    相应的有set方法。<br>常用的日期处理方法：</p>
 <pre><code>    /* 说明：时间格式处理(年/月/日 时:分:秒)
@@ -600,7 +598,7 @@
     <link href="http://yoursite.com/2016/09/07/meetHexo/"/>
     <id>http://yoursite.com/2016/09/07/meetHexo/</id>
     <published>2016-09-07T05:14:21.000Z</published>
-    <updated>2016-12-21T01:48:44.849Z</updated>
+    <updated>2016-12-21T01:48:46.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
 <li>node</li>
